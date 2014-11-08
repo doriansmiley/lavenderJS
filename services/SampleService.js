@@ -1,17 +1,18 @@
 /**
  * Created by dsmiley on 11/5/13.
  * Define stub methods and signatures
- * user generic built in ajax support
+ * This is a sample service implementation using Lavender's HttpServiceFactory. As you can see we abstract out the service implementation by delegating the object creation to HttpServiceFactory.
+ * All concrete http service objects expose a common API consisting of the addResponder and send method. Application configuration determines which concrete instance is used.
  */
-Lavender.ServiceV1 = function( config ){
+Lavender.SampleService = function( config ){
     var _config;//IContextConfigModel
     
     Lavender.Subject.prototype.constructor.call(this);
     this.config = config;
 }
-Lavender.ObjectUtils.extend( Lavender.Subject, Lavender.ServiceV1);
+Lavender.ObjectUtils.extend( Lavender.Subject, Lavender.SampleService);
 
-Lavender.ServiceV1.prototype.createSDSession = function(context, userID, password, url, responder, format, contentType, localRequest, cache) {
+Lavender.SampleService.prototype.createSDSession = function(context, userID, password, url, responder, format, contentType, localRequest, cache) {
     var params =
     {
         'context'	: this.config.context,
@@ -23,7 +24,7 @@ Lavender.ServiceV1.prototype.createSDSession = function(context, userID, passwor
 }
 
 // Typical request should be sent via this method, sendRequest() is only used for custom requests
-Lavender.ServiceV1.prototype.sendXMLRequest = function(isPostRequest, responder, url, paramObj, urlParams, format, contentType, localRequest, cache, externalApiUrl)
+Lavender.SampleService.prototype.sendXMLRequest = function(isPostRequest, responder, url, paramObj, urlParams, format, contentType, localRequest, cache, externalApiUrl)
 {
     var paramsXML = null;
 
@@ -46,7 +47,7 @@ Lavender.ServiceV1.prototype.sendXMLRequest = function(isPostRequest, responder,
 }
 
 
-Lavender.ServiceV1.prototype.sendRequest = function( isPostRequest, responder, url, params, dataType, contentType, cache )
+Lavender.SampleService.prototype.sendRequest = function( isPostRequest, responder, url, params, dataType, contentType, cache )
 {
     if( cache === null || cache === undefined ){
         cache = false;

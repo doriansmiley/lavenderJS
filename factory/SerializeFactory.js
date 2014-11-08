@@ -2,7 +2,11 @@
  * Created by dsmiley on 1/10/14.
  */
 Lavender.SerializeFactory = function(){
-
+    if (Lavender.SerializeFactory.instance != null) {
+        throw( 'Lavender.EventDispatcherFactory.instance: Singleton class has already been instantiated' );
+    } else {
+        //perform any required object set up
+    }
 }
 
 /*
@@ -45,4 +49,4 @@ Lavender.SerializeFactory.getInstance = function(){
     return Lavender.SerializeFactory.instance;
 }
 
-Lavender.SerializeFactory.instance;
+Lavender.SerializeFactory.instance = null;

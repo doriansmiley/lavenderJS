@@ -3,6 +3,11 @@
  */
 Lavender.EventDispatcherFactory = function(){
     Lavender.Subject.prototype.constructor.call(this);
+    if (Lavender.EventDispatcherFactory.instance != null ) {
+        throw( 'Lavender.EventDispatcherFactory.instance: Singleton class has already been instantiated' );
+    } else {
+        //perform any required object set up
+    }
 }
 
 Lavender.ObjectUtils.extend( Lavender.Subject, Lavender.EventDispatcherFactory);
@@ -14,7 +19,7 @@ Lavender.EventDispatcherFactory.getInstance = function(){
     return Lavender.EventDispatcherFactory.instance;
 }
 
-Lavender.EventDispatcherFactory.instance;
+Lavender.EventDispatcherFactory.instance = null;
 
 Lavender.EventDispatcherFactory.prototype.getEventDispatcher = function( config, params ){
     var dispatcher;

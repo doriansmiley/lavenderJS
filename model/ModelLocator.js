@@ -67,4 +67,4 @@ Lavender.ModelLocator.getInstance = function () {
     return Lavender.ModelLocator.instance;
 }
 
-Lavender.ModelLocator.instance;
+Lavender.ModelLocator.instance = null;

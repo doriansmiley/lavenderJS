@@ -44,7 +44,7 @@ $SPI_SDK_HOME/services/HttpSuccess.js \
 $SPI_SDK_HOME/services/AbstractHttpService.js \
 $SPI_SDK_HOME/services/JqueryHttpService.js \
 $SPI_SDK_HOME/services/AngularHttpService.js \
-$SPI_SDK_HOME/services/ServiceV1.js \
+$SPI_SDK_HOME/services/SampleService.js \
 $SPI_SDK_HOME/factory/ServiceFactory.js \
 $SPI_SDK_HOME/factory/EventDispatcherFactory.js \
 $SPI_SDK_HOME/factory/HttpServiceFactory.js \

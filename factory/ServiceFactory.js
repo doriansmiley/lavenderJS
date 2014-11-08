@@ -3,7 +3,11 @@
  */
 
 Lavender.ServiceFactory = function(){
-
+    if (Lavender.ServiceFactory.instance != null) {
+        throw( 'Lavender.EventDispatcherFactory.instance: Singleton class has already been instantiated' );
+    } else {
+        //perform any required object set up
+    }
 }
 
 Lavender.ServiceFactory.getInstance = function(){
@@ -13,7 +17,7 @@ Lavender.ServiceFactory.getInstance = function(){
     return Lavender.ServiceFactory.instance;
 }
 
-Lavender.ServiceFactory.instance;
+Lavender.ServiceFactory.instance = null;
 
 Lavender.ServiceFactory.prototype.getService = function( config ){
     var dao;
@@ -22,7 +26,7 @@ Lavender.ServiceFactory.prototype.getService = function( config ){
         case '1.1':
         case "2.50.4878.21250":
         default:
-            dao = new Lavender.ServiceV1( config );
+            dao = new Lavender.SampleService( config );
     }
     return dao;
 }

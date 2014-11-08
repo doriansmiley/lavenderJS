@@ -6,7 +6,7 @@
 /* jasmine specs for controllers go here */
 describe('ServiceV1Test ', function () {
 
-    it('check ServiceV1 function and values', function () {
+    it('check SampleService function and values', function () {
         var config = new Lavender.Config();
         config.context = 'hjyearbook';
         config.user = 'hjyearbook';
@@ -14,7 +14,7 @@ describe('ServiceV1Test ', function () {
         config.baseUrl = '/local/demo/refapp/php/Proxy.php?url=http://devsql1.silpub.com/';
         //config.globalFontMapPath = '/local/demo/refapp/php/Proxy.php?url=http://devsql1.silpub.com/designers/hjyearbook/assets/fonts/GlobalFontMap_hjy.xml';
         config.globalFontMapPath = '/local/demo/refapp/php/GlobalFontMap_hjy.xml';
-        var request = new Lavender.ServiceV1(config);
+        var request = new Lavender.SampleService(config);
         var success = false;
         var successObject;
         var responder1 = {

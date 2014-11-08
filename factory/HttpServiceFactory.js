@@ -2,7 +2,11 @@
  * Created by dsmiley on 2/10/14.
  */
 Lavender.HttpServiceFactory = function(){
-
+    if (Lavender.HttpServiceFactory.instance != null) {
+        throw( 'Lavender.EventDispatcherFactory.instance: Singleton class has already been instantiated' );
+    } else {
+        //perform any required object set up
+    }
 }
 
 Lavender.HttpServiceFactory.getInstance = function(){
@@ -12,7 +16,7 @@ Lavender.HttpServiceFactory.getInstance = function(){
     return Lavender.HttpServiceFactory.instance;
 }
 
-Lavender.HttpServiceFactory.instance;
+Lavender.HttpServiceFactory.instance = null;
 
 Lavender.HttpServiceFactory.prototype.getHttpService = function( config ){
     var httpService;

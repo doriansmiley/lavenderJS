@@ -9,7 +9,7 @@ describe('AbstractServiceFactoryTest', function () {
             var service = Lavender.ServiceFactory.getInstance();
             expect(service).toBeDefined();
             expect(service.getService).toBeDefined();
-            expect(service.getService( new Lavender.Config() ) instanceof Lavender.ServiceV1).toBe(true);
+            expect(service.getService( new Lavender.Config() ) instanceof Lavender.SampleService).toBe(true);
         });
 
     });
