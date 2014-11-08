@@ -17,7 +17,7 @@ Lavender.ServiceFactory.instance;
 
 Lavender.ServiceFactory.prototype.getService = function( config ){
     var dao;
-    switch( config.daoCode ){
+    switch( config.serviceCode ){
         case "1.0":
         case '1.1':
         case "2.50.4878.21250":

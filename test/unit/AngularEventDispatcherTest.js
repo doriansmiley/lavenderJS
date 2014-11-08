@@ -22,7 +22,7 @@ describe('AbstractEventDispatcher test', function () {
         Lavender.init( Lavender.ModelLocator.getInstance().config, $rootScope );
         var testObject = {};
         var testObject2 = {};
-        var event = new Lavender.SessionEvent('test', {data:'test data'});
+        var event = new Lavender.AbstractEvent('test', {data:'test data'});
         testObject.handler = function( event, data ){
             expect( data.payload.data ).toBe('test data');
         }

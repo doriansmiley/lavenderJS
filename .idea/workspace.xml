@@ -2,29 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="acbc6e32-f343-4053-9050-eb78453d1a0f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/lavenderJS.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/private/ScrapeData.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/commands.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/e2e-test.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/e2e-test.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/private/format-json.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/private/goto_step.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/private/goto_step.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/private/push-to-github.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/private/retag.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/private/snapshot-web.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/private/snapshot.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/test.bat" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/test.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/testUtils.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/update-repo.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/watchr.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/scripts/web-server.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/factory/SerializeFactory.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/control/actions/ReplaceControlImageAction.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/ReplaceControlImageActionTest.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/unit/utilsTests/CSSUtilsTest.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/control/actions/AbstractServiceAction.js" afterPath="$PROJECT_DIR$/control/actions/AbstractServiceAction.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/AngularEventDispatcherTest.js" afterPath="$PROJECT_DIR$/test/unit/AngularEventDispatcherTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/Config.js" afterPath="$PROJECT_DIR$/model/Config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/ConfigTest.js" afterPath="$PROJECT_DIR$/test/unit/ConfigTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/global/Lavender.js" afterPath="$PROJECT_DIR$/global/Lavender.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/ModelLocatorTest.js" afterPath="$PROJECT_DIR$/test/unit/ModelLocatorTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/recordset/RecordSet.js" afterPath="$PROJECT_DIR$/model/recordset/RecordSet.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/events/RecordSetEvent.js" afterPath="$PROJECT_DIR$/events/RecordSetEvent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/RecordSetTest.js" afterPath="$PROJECT_DIR$/test/unit/RecordSetTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/factory/ServiceFactory.js" afterPath="$PROJECT_DIR$/factory/ServiceFactory.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/services/ServiceV1.js" afterPath="$PROJECT_DIR$/services/ServiceV1.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/ServiceV1Test.js" afterPath="$PROJECT_DIR$/test/unit/ServiceV1Test.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/unit/utilsTests/URLUtilsTest.js" afterPath="$PROJECT_DIR$/test/unit/utilsTests/URLUtilsTest.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/scripts/commands.txt" afterPath="$PROJECT_DIR$/scripts/commands.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="lavenderJS.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,16 +46,97 @@
       <file leaf-file-name="Lavender.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/global/Lavender.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="8" selection-start="24" selection-end="32" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+            <state line="2" column="1" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="commands.txt" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/scripts/commands.txt">
+      <file leaf-file-name="ModelLocatorTest.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/ModelLocatorTest.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="39" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.4351768" vertical-offset="0" max-vertical-offset="1103">
+            <state line="13" column="55" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecordSet.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/recordset/RecordSet.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="19" column="42" selection-start="1080" selection-end="1080" vertical-scroll-proportion="-10.961538" vertical-offset="0" max-vertical-offset="3480">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArrayList.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/lists/ArrayList.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2685">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecordSetEvent.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/events/RecordSetEvent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="25" column="0" selection-start="1123" selection-end="1161" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ModelLocator.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/model/ModelLocator.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1125">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractServiceAction.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/control/actions/AbstractServiceAction.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="42" selection-end="72" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractSynchronousAction.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/control/actions/AbstractSynchronousAction.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="0" selection-start="42" selection-end="76" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceV1.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/services/ServiceV1.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="29" selection-start="383" selection-end="494" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="1065">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ServiceV1Test.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/unit/ServiceV1Test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="56" column="0" selection-start="2588" selection-end="2588" vertical-scroll-proportion="-32.307693" vertical-offset="0" max-vertical-offset="930">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="URLUtilsTest.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/unit/utilsTests/URLUtilsTest.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="8" selection-start="218" selection-end="218" vertical-scroll-proportion="0.122393474" vertical-offset="0" max-vertical-offset="1103">
               <folding />
             </state>
           </provider>
@@ -83,29 +160,29 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/util/ColorUtils.js" />
-        <option value="$PROJECT_DIR$/util/URLUtils.js" />
-        <option value="$PROJECT_DIR$/control/AbstractEventDispatcher.js" />
-        <option value="$PROJECT_DIR$/control/AngularEventDispatcher.js" />
-        <option value="$PROJECT_DIR$/control/JqueryEventDispatcher.js" />
-        <option value="$PROJECT_DIR$/control/actions/AbstractServiceAction.js" />
-        <option value="$PROJECT_DIR$/control/actions/AbstractSynchronousAction.js" />
-        <option value="$PROJECT_DIR$/control/actions/ReplaceControlImageAction.js" />
-        <option value="$PROJECT_DIR$/events/AbstractEvent.js" />
-        <option value="$PROJECT_DIR$/events/ActionErrorEvent.js" />
-        <option value="$PROJECT_DIR$/events/CollectionEvent.js" />
-        <option value="$PROJECT_DIR$/global/SpiSdk.js" />
-        <option value="$PROJECT_DIR$/test/config/karma.conf.js" />
-        <option value="$PROJECT_DIR$/test/config/utils-test-karma.conf.js" />
-        <option value="$PROJECT_DIR$/scripts/commands.txt" />
+        <option value="$PROJECT_DIR$/serialization/serialize/ServiceExporterV1.js" />
+        <option value="$PROJECT_DIR$/factory/SerializeFactory.js" />
+        <option value="$PROJECT_DIR$/test/unit/AbstractServiceActionTest.js" />
+        <option value="$PROJECT_DIR$/global/Lavender.js" />
+        <option value="$PROJECT_DIR$/test/unit/AngularEventDispatcherTest.js" />
         <option value="$PROJECT_DIR$/model/Config.js" />
+        <option value="$PROJECT_DIR$/factory/ServiceFactory.js" />
+        <option value="$PROJECT_DIR$/test/unit/ConfigTest.js" />
+        <option value="$PROJECT_DIR$/test/unit/ModelLocatorTest.js" />
+        <option value="$PROJECT_DIR$/events/RecordSetEvent.js" />
+        <option value="$PROJECT_DIR$/model/recordset/RecordSet.js" />
+        <option value="$PROJECT_DIR$/test/unit/RecordSetTest.js" />
+        <option value="$PROJECT_DIR$/scripts/commands.txt" />
+        <option value="$PROJECT_DIR$/services/ServiceV1.js" />
+        <option value="$PROJECT_DIR$/test/unit/ServiceV1Test.js" />
+        <option value="$PROJECT_DIR$/test/unit/utilsTests/URLUtilsTest.js" />
       </list>
     </option>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="154" />
-    <option name="y" value="27" />
+    <option name="y" value="22" />
     <option name="width" value="2370" />
     <option name="height" value="1252" />
   </component>
@@ -198,18 +275,12 @@
               <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lavenderJS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lavenderJS" />
+              <option name="myItemId" value="unit" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="scripts" />
+              <option name="myItemId" value="utilsTests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -223,7 +294,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="model" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -237,21 +308,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="minify" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lavenderJS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lavenderJS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="global" />
+              <option name="myItemId" value="services" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -265,7 +322,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="factory" />
+              <option name="myItemId" value="scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -311,8 +368,9 @@
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="options.lastSelected" value="web-ide.project.structure" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../SiliconDesignerHTML5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -369,6 +427,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/factory" />
+      <recent name="$PROJECT_DIR$/serialization/serialize" />
+      <recent name="$PROJECT_DIR$/serialization/deserialize" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -398,18 +459,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="154" y="27" width="2370" height="1252" extended-state="0" />
+    <frame x="154" y="22" width="2370" height="1252" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32929993" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24978903" sideWeight="0.6707001" order="0" side_tool="false" content_ui="combo" />
@@ -418,8 +479,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -434,114 +495,114 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/control/AngularEventDispatcher.js">
+    <entry file="file://$PROJECT_DIR$/model/Config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="28" selection-start="155" selection-end="155" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
+        <state line="20" column="23" selection-start="495" selection-end="506" vertical-scroll-proportion="0.2657219" vertical-offset="0" max-vertical-offset="1530">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/control/JqueryEventDispatcher.js">
+    <entry file="file://$PROJECT_DIR$/factory/SerializeFactory.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="28" selection-start="70" selection-end="70" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="585">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/control/actions/AbstractSynchronousAction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/events/CollectionEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.03985828" vertical-offset="0" max-vertical-offset="1129">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/events/ActionErrorEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.03985828" vertical-offset="0" max-vertical-offset="1129">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/events/AbstractEvent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.03985828" vertical-offset="0" max-vertical-offset="1129">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/control/actions/ReplaceControlImageAction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.03985828" vertical-offset="0" max-vertical-offset="1129">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/BindingUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3000">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/control/actions/AbstractServiceAction.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="42" selection-end="42" vertical-scroll-proportion="0.013286094" vertical-offset="30" max-vertical-offset="1710">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/config/utils-test-karma.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="33" selection-start="980" selection-end="980" vertical-scroll-proportion="0.34543845" vertical-offset="0" max-vertical-offset="1129">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/config/karma.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="12" selection-start="109" selection-end="977" vertical-scroll-proportion="0.06643047" vertical-offset="0" max-vertical-offset="1129">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/private/retag.sh">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1129">
+        <state line="31" column="21" selection-start="769" selection-end="769" vertical-scroll-proportion="0.4118689" vertical-offset="0" max-vertical-offset="1129">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/global/Lavender.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="8" selection-start="24" selection-end="32" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="210">
+        <state line="2" column="1" selection-start="23" selection-end="23" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/model/Config.js">
+    <entry file="file://$PROJECT_DIR$/test/unit/ModelLocatorTest.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="46" selection-start="870" selection-end="870" vertical-scroll-proportion="0.4215775" vertical-offset="0" max-vertical-offset="1545">
+        <state line="13" column="55" selection-start="529" selection-end="529" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/unit/AbstractEventDispatcherTest.js">
+    <entry file="file://$PROJECT_DIR$/events/RecordSetEvent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1129">
+        <state line="25" column="0" selection-start="1123" selection-end="1161" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="465">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/lists/ArrayList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="18" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2685">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/RecordSetTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="59" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.43255815" vertical-offset="0" max-vertical-offset="1635">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/recordset/RecordSet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="42" selection-start="1080" selection-end="1080" vertical-scroll-proportion="-10.961538" vertical-offset="0" max-vertical-offset="3480">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/commands.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="39" selection-start="1062" selection-end="1062" vertical-scroll-proportion="0.4351768" vertical-offset="0" max-vertical-offset="1103">
+        <state line="51" column="60" selection-start="1921" selection-end="1921" vertical-scroll-proportion="0.6775908" vertical-offset="0" max-vertical-offset="1129">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/model/ModelLocator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1129">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control/actions/AbstractServiceAction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="42" selection-end="72" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/control/actions/AbstractSynchronousAction.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="42" selection-end="76" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/services/ServiceV1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="29" selection-start="383" selection-end="494" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="1065">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/ServiceV1Test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="0" selection-start="2588" selection-end="2588" vertical-scroll-proportion="-32.307693" vertical-offset="0" max-vertical-offset="930">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/URLUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="32" selection-start="98" selection-end="112" vertical-scroll-proportion="0.093002655" vertical-offset="0" max-vertical-offset="1129">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/unit/utilsTests/URLUtilsTest.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="8" selection-start="218" selection-end="218" vertical-scroll-proportion="0.122393474" vertical-offset="0" max-vertical-offset="1103">
           <folding />
         </state>
       </provider>

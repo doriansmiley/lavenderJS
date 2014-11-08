@@ -99,7 +99,7 @@ Lavender.AbstractServiceAction.prototype.executionError = function () {
 
 //abstract method for override
 Lavender.AbstractServiceAction.prototype.getExecErrorString = function (msg) {
-    return msg;
+    return 'Lavender.AbstractServiceAction.prototype.executionError: the following are required: ';
 }
 
 Lavender.AbstractServiceAction.prototype.tearDown = function () {

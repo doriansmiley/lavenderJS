@@ -23,3 +23,4 @@ Lavender.RecordSetEvent.RESULTS_CHANGE = 'resultsChange';
 Lavender.RecordSetEvent.RECORDS_PER_PAGE_CHANGE = 'recordsPerPageChange';
 Lavender.RecordSetEvent.SELECTED_PAGE_CHANGE = 'selectedPageChange';
 Lavender.RecordSetEvent.RECORDSETS_CHANGE = 'recordsetChange';
+Lavender.RecordSetEvent.LOAD_PAGE_DATA = 'loadRecordSetPageData';

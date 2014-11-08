@@ -16,8 +16,8 @@ Lavender.RecordSet = function (timeToLive) {
     var _totalPages;//Number
     var _selectedPage;//Number
     var _recordsPerPage;//Number
-    var _results = new Lavender.AssetList();
-    var _pageList = new Lavender.AssetList();
+    var _results = new Lavender.ArrayList();
+    var _pageList = new Lavender.ArrayList();
     var _createdOn;//Date
     var _timeToLive;//Number
     var _source;//String
@@ -113,7 +113,7 @@ Lavender.RecordSet = function (timeToLive) {
             set: function (val) {
                 if (_selectedPage != val) {
                     if( !this.pageLoaded( val ) ){
-                        this.dispatch( new Lavender.ImageAssetEvent(Lavender.ImageAssetEvent.GET_IMAGE_ASSETS, {recordSet:this}) );
+                        this.dispatch( new Lavender.RecordSetEvent(Lavender.RecordSetEvent.LOAD_PAGE_DATA, {recordSet:this}) );
                     }
                     _selectedPage = val;
                     this.calculatePageList();

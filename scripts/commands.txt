@@ -50,7 +50,6 @@ $SPI_SDK_HOME/factory/EventDispatcherFactory.js \
 $SPI_SDK_HOME/factory/HttpServiceFactory.js \
 $SPI_SDK_HOME/control/actions/AbstractServiceAction.js \
 $SPI_SDK_HOME/control/actions/AbstractSynchronousAction.js \
-$SPI_SDK_HOME/control/actions/ReplaceControlImageAction.js \
 $SPI_SDK_HOME/global/Lavender.js \
 -o $SPI_SDK_HOME/minify/lavender.min.js \
 --source-map $SPI_SDK_HOME/minify/lavender.min.js.map

@@ -8,16 +8,42 @@ Lavender.Config = function(){
     var _eventDispatcherCode = 'jquery';
     var _baseUrl;//String
     var _sessionId;//String
+    var _serviceCode;//String
     var _httpServiceCode = 'jquery';
-    var _useLocalHostProxy = false;
-    var _cacheServiceResults = false;
-    var _localProxyBaseUrl;
     var _webRoot = '';//default to empty string
+    var _parserCode = undefined;
+    var _exporterCode = undefined;
 
     Lavender.Subject.prototype.constructor.call(this);
 
     // Define our getters and setters
     this.addProperties({
+            serviceCode: {
+                get: function() {
+                    return _serviceCode;
+                },
+                set: function(val) {
+                    _serviceCode = val;
+                    this.Notify( val, 'serviceCode' );
+                }
+            },exporterCode: {
+                get: function() {
+                    return _exporterCode;
+                },
+                set: function(val) {
+                    _exporterCode = val;
+                    this.Notify( val, 'exporterCode' );
+                }
+            },
+            parserCode: {
+                get: function() {
+                    return _parserCode;
+                },
+                set: function(val) {
+                    _parserCode = val;
+                    this.Notify( val, 'parserCode' );
+                }
+            },
             webRoot: {
                 get: function() {
                     return _webRoot;
@@ -25,33 +51,6 @@ Lavender.Config = function(){
                 set: function(val) {
                     _webRoot = val;
                     this.Notify( val, 'webRoot' );
-                }
-            },
-            localProxyBaseUrl: {
-                get: function() {
-                    return _localProxyBaseUrl;
-                },
-                set: function(val) {
-                    _localProxyBaseUrl = val;
-                    this.Notify( val, 'localProxyBaseUrl' );
-                }
-            },
-            cacheServiceResults: {
-                get: function() {
-                    return _cacheServiceResults;
-                },
-                set: function(val) {
-                    _cacheServiceResults = val;
-                    this.Notify( val, 'cacheServiceResults' );
-                }
-            },
-            useLocalHostProxy: {
-                get: function() {
-                    return _useLocalHostProxy;
-                },
-                set: function(val) {
-                    _useLocalHostProxy = val;
-                    this.Notify( val, 'useLocalHostProxy' );
                 }
             },
             httpServiceCode: {

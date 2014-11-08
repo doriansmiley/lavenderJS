@@ -9,13 +9,9 @@ describe('SPISDK Lists', function () {
             var model = Lavender.ModelLocator.getInstance();
             expect(model).toBeDefined();
             expect(model.config).toBeDefined();
-            expect(model.sessionModel).toBeDefined();
-            expect(model.colorModel).toBeDefined();
             expect(model.errorModel).toBeDefined();
             expect(model.asyncOperationModel).toBeDefined();
             expect(model.recordsetModel).toBeDefined();
-            expect(model.documentViewModel).toBeDefined();
-            expect(model.textSelectionModel).toBeDefined();
         });
 
     });

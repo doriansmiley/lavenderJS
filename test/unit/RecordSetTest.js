@@ -16,20 +16,20 @@ describe('RecordSetTest ', function () {
         recordSet.totalRecords = 300;
         recordSet.recordsPerPage = 10;
         var resultSet = new Lavender.ArrayList();
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
-        resultSet.addItem( new Lavender.ImageAsset());
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
         var eventType;
         var eventTriggered = false;
         var resultSetHandler = {};
@@ -84,7 +84,7 @@ describe('RecordSetTest ', function () {
             expect( recordSet.resultsByPage[recordSet.selectedPage].length()).toBe(4);
             expect( recordSet.pageList.length() ).toBe(4);
             eventTriggered = false;
-            recordSet.results.addItem( new Lavender.ImageAsset());
+            recordSet.results.addItem( {someAttribute:1, someOther:5});
         });
 
         //Tell jasmine to hold execution until the condition success == true is met or the timeout of 5000 milliseconds occurs
