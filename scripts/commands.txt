@@ -1,0 +1,56 @@
+export SPI_SDK_HOME=/Users/dsmiley/workspace/lavenderJS
+
+cd $SPI_SDK_HOME
+sh ./scripts/test.sh
+
+export SPI_SDK_HOME=/Users/dsmiley/workspace/lavenderJS
+
+cd $SPI_SDK_HOME
+sh ./scripts/testUtils.sh
+
+export SPI_SDK_HOME=/Users/dsmiley/workspace/lavenderJS
+
+uglifyjs $SPI_SDK_HOME/util/BindingUtils.js \
+$SPI_SDK_HOME/util/ObjectUtils.js \
+$SPI_SDK_HOME/util/TransformUtils.js \
+$SPI_SDK_HOME/util/CopyUtils.js \
+$SPI_SDK_HOME/util/MathUtils.js \
+$SPI_SDK_HOME/util/MatrixUtils.js \
+$SPI_SDK_HOME/util/BrowserUtils.js \
+$SPI_SDK_HOME/util/StringUtil.js \
+$SPI_SDK_HOME/util/ColorUtils.js \
+$SPI_SDK_HOME/util/URLUtils.js \
+$SPI_SDK_HOME/util/CoordsUtils.js \
+$SPI_SDK_HOME/util/Geometry.js \
+$SPI_SDK_HOME/util/XmlUtils.js \
+$SPI_SDK_HOME/util/ResizeUtils.js \
+$SPI_SDK_HOME/events/AbstractEvent.js \
+$SPI_SDK_HOME/events/ActionErrorEvent.js \
+$SPI_SDK_HOME/events/CollectionEvent.js \
+$SPI_SDK_HOME/events/RecordSetEvent.js \
+$SPI_SDK_HOME/control/AbstractEventDispatcher.js \
+$SPI_SDK_HOME/control/JqueryEventDispatcher.js \
+$SPI_SDK_HOME/control/AngularEventDispatcher.js \
+$SPI_SDK_HOME/model/lists/ArrayList.js \
+$SPI_SDK_HOME/model/Config.js \
+$SPI_SDK_HOME/model/AsyncOperationModel.js \
+$SPI_SDK_HOME/model/ErrorModel.js \
+$SPI_SDK_HOME/model/ModelLocator.js \
+$SPI_SDK_HOME/model/recordset/RecordSet.js \
+$SPI_SDK_HOME/model/recordset/RecordSetList.js \
+$SPI_SDK_HOME/model/recordset/RecordSetModel.js \
+$SPI_SDK_HOME/services/HttpFault.js \
+$SPI_SDK_HOME/services/HttpSuccess.js \
+$SPI_SDK_HOME/services/AbstractHttpService.js \
+$SPI_SDK_HOME/services/JqueryHttpService.js \
+$SPI_SDK_HOME/services/AngularHttpService.js \
+$SPI_SDK_HOME/services/ServiceV1.js \
+$SPI_SDK_HOME/factory/ServiceFactory.js \
+$SPI_SDK_HOME/factory/EventDispatcherFactory.js \
+$SPI_SDK_HOME/factory/HttpServiceFactory.js \
+$SPI_SDK_HOME/control/actions/AbstractServiceAction.js \
+$SPI_SDK_HOME/control/actions/AbstractSynchronousAction.js \
+$SPI_SDK_HOME/control/actions/ReplaceControlImageAction.js \
+$SPI_SDK_HOME/global/Lavender.js \
+-o $SPI_SDK_HOME/minify/lavender.min.js \
+--source-map $SPI_SDK_HOME/minify/lavender.min.js.map
