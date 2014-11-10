@@ -48,6 +48,7 @@ $SPI_SDK_HOME/services/SampleService.js \
 $SPI_SDK_HOME/factory/ServiceFactory.js \
 $SPI_SDK_HOME/factory/EventDispatcherFactory.js \
 $SPI_SDK_HOME/factory/HttpServiceFactory.js \
+$SPI_SDK_HOME/factory/SerializeFactory.js \
 $SPI_SDK_HOME/control/actions/AbstractServiceAction.js \
 $SPI_SDK_HOME/control/actions/AbstractSynchronousAction.js \
 $SPI_SDK_HOME/global/Lavender.js \

@@ -24,7 +24,12 @@ Lavender.ArrayList.prototype.source = function () {
     return this.aList;
 }
 
+Lavender.ArrayList.prototype.validateItem = function (object) {
+    //stub for override, overrides should use the instanceof keyword to determine if object is of the correct type
+}
+
 Lavender.ArrayList.prototype.addItem = function (object) {
+    this.validateItem(object);
     //Object are placed at the end of the array
     var index = this.aList.push(object);
     this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, null  ) );
@@ -93,6 +98,7 @@ Lavender.ArrayList.prototype.removeItemAt = function (index) // index must be a 
 }
 
 Lavender.ArrayList.prototype.insert = function (object, index, suppressChangeEvent) {
+    this.validateItem(object);
     if( suppressChangeEvent === null || suppressChangeEvent === undefined ){
         suppressChangeEvent = false;
     }

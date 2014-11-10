@@ -5,7 +5,7 @@
  */
 Lavender.Config = function(){
 
-    var _eventDispatcherCode = 'jquery';
+    var _eventDispatcherCode = 'abstract';
     var _baseUrl;//String
     var _sessionId;//String
     var _serviceCode;//String
