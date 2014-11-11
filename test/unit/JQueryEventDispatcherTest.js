@@ -2,9 +2,9 @@
  * Created by dsmiley on 1/23/14.
  */
 'use strict';
-describe('AbstractEventDispatcher test', function () {
+describe('JQueryEventDispatcherTest test', function () {
 
-    it('check event bus', function () {
+    it('check JQueryEventDispatcher', function () {
         Lavender.ModelLocator.getInstance().config.eventDispatcherCode = 'jquery';
         Lavender.init( Lavender.ModelLocator.getInstance().config );
         var testObject = {};
@@ -19,6 +19,7 @@ describe('AbstractEventDispatcher test', function () {
         testObject2.handler = function( event ){
             expect( event.payload.data ).toBe('test data');
         }
+        expect( Lavender.EventDispatcher instanceof JqueryEventDispatcher).toBe(true);
         Lavender.EventDispatcher.addEventListener('test', testObject, 'handler');
         Lavender.EventDispatcher.addEventListener('test', testObject, 'handler2');
         expect( Lavender.EventDispatcher.canListen('test', testObject, 'handler') ).toBe(true);
