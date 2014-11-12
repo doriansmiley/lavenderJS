@@ -1,7 +1,8 @@
 /**
  * Created by dsmiley on 2/26/14.
  */
-Lavender.AbstractSynchronousAction = function () {
+Lavender.AbstractSynchronousAction = function (errorModel) {
+    this.errorModel = errorModel;//Lavender.ErrorModel
     Lavender.Subject.prototype.constructor.call(this);
 
     Lavender.ObjectUtils.mixin(Lavender.AbstractEventDispatcher, Lavender.AbstractSynchronousAction, this);
@@ -17,10 +18,10 @@ Lavender.AbstractSynchronousAction.prototype.execute = function () {
     } catch (e) {
         var errorMessage = this.getErrorMessage() + "\n" + e.message + "\n" + e.stack;
         var errorEvent = new Lavender.ActionErrorEvent(Lavender.ActionErrorEvent.ERROR, {message:errorMessage});
-        Lavender.EventDispatcher.dispatch(errorEvent);
+        this.dispatch(errorEvent);
         var error = {name: 'error', message: errorMessage};
-        Lavender.Model.errorModel.errors.addItem(error);
-        Lavender.Model.errorModel.appError = true;
+        this.errorModel.errors.addItem(error);
+        this.errorModel.appError = true;
     } finally {
         this.tearDown();
     }
@@ -34,7 +35,7 @@ Lavender.AbstractSynchronousAction.prototype.getResultObj = function (result) {
 Lavender.AbstractSynchronousAction.prototype.dispatchSuccess = function (result) {
     //notify listeners and include all known values
     var doneEvent = new Lavender.ActionSuccessEvent(Lavender.ActionSuccessEvent.SUCCESS,{result:result});
-    Lavender.EventDispatcher.dispatch(doneEvent);
+    this.dispatch(doneEvent);
 }
 
 //abstract method for override

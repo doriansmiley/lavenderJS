@@ -5,8 +5,7 @@
 describe('JQueryEventDispatcherTest test', function () {
 
     it('check JQueryEventDispatcher', function () {
-        Lavender.ModelLocator.getInstance().config.eventDispatcherCode = 'jquery';
-        Lavender.init( Lavender.ModelLocator.getInstance().config );
+        var eventDispatcher = new Lavender.JqueryEventDispatcher();
         var testObject = {};
         var testObject2 = {};
         var event = new Lavender.AbstractEvent('test', {data:'test data'});
@@ -19,23 +18,22 @@ describe('JQueryEventDispatcherTest test', function () {
         testObject2.handler = function( event ){
             expect( event.payload.data ).toBe('test data');
         }
-        expect( Lavender.EventDispatcher instanceof JqueryEventDispatcher).toBe(true);
-        Lavender.EventDispatcher.addEventListener('test', testObject, 'handler');
-        Lavender.EventDispatcher.addEventListener('test', testObject, 'handler2');
-        expect( Lavender.EventDispatcher.canListen('test', testObject, 'handler') ).toBe(true);
-        expect( Lavender.EventDispatcher.canListen('test', testObject, 'handler2') ).toBe(true);
-        Lavender.EventDispatcher.dispatch( event );
-        Lavender.EventDispatcher.removeEventListener('test', testObject, 'handler');
-        expect( Lavender.EventDispatcher.canListen('test', testObject, 'handler') ).toBe(false);
-        Lavender.EventDispatcher.dispatch( event );
-        Lavender.EventDispatcher.addEventListener('test', testObject, 'handler');
-        Lavender.EventDispatcher.addEventListener('test', testObject2, 'handler');
-        expect( Lavender.EventDispatcher.canListen('test', testObject, 'handler') ).toBe(true);
-        expect( Lavender.EventDispatcher.canListen('test', testObject, 'handler2') ).toBe(true);
-        Lavender.EventDispatcher.dispatch( event );
-        Lavender.EventDispatcher.removeAllEventListeners( testObject );
-        expect( Lavender.EventDispatcher.canListen('test', testObject, 'handler') ).toBe(false);
-        expect( Lavender.EventDispatcher.canListen('test', testObject, 'handler2') ).toBe(false);
-        Lavender.EventDispatcher.dispatch( event );
+        eventDispatcher.addEventListener('test', testObject, 'handler');
+        eventDispatcher.addEventListener('test', testObject, 'handler2');
+        expect( eventDispatcher.canListen('test', testObject, 'handler') ).toBe(true);
+        expect( eventDispatcher.canListen('test', testObject, 'handler2') ).toBe(true);
+        eventDispatcher.dispatch( event );
+        eventDispatcher.removeEventListener('test', testObject, 'handler');
+        expect( eventDispatcher.canListen('test', testObject, 'handler') ).toBe(false);
+        eventDispatcher.dispatch( event );
+        eventDispatcher.addEventListener('test', testObject, 'handler');
+        eventDispatcher.addEventListener('test', testObject2, 'handler');
+        expect( eventDispatcher.canListen('test', testObject, 'handler') ).toBe(true);
+        expect( eventDispatcher.canListen('test', testObject, 'handler2') ).toBe(true);
+        eventDispatcher.dispatch( event );
+        eventDispatcher.removeAllEventListeners( testObject );
+        expect( eventDispatcher.canListen('test', testObject, 'handler') ).toBe(false);
+        expect( eventDispatcher.canListen('test', testObject, 'handler2') ).toBe(false);
+        eventDispatcher.dispatch( event );
     });
 });

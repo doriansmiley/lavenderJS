@@ -7,7 +7,7 @@
 describe('AbstractSynchronousActionTest ', function () {
 
     it('check AbstractSynchronousAction function and values', function () {
-        var abstractAction = new Lavender.AbstractSynchronousAction( );
+        var abstractAction = new Lavender.AbstractSynchronousAction( new Lavender.ErrorModel() );
         abstractAction.execute();
     });
 });

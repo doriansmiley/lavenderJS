@@ -1,10 +1,11 @@
 /**
  * Created by dsmiley on 2/26/14.
  */
-Lavender.AbstractServiceAction = function (service, opModel, parser) {
-    this.service = service;//DAO;
-    this.opModel = opModel;//OperationModel;
-    this.parser = parser;//ServiceResultParser;
+Lavender.AbstractServiceAction = function (service, opModel, parser, errorModel) {
+    this.service = service;//some service implementation;
+    this.opModel = opModel;//Lavender.AsyncOperationModel;
+    this.parser = parser;//some parser implementation for the service results;
+    this.errorModel = errorModel;//Lavender.ErrorModel
 
     Lavender.Subject.prototype.constructor.call(this);
 
@@ -38,7 +39,7 @@ Lavender.AbstractServiceAction.prototype.executeDAOMethod = function () {
 Lavender.AbstractServiceAction.prototype.dispatchSuccess = function (parsedResult) {
     //notify listeners and include all known values
     var doneEvent = new Lavender.ActionSuccessEvent(Lavender.ActionSuccessEvent.SUCCESS,{result:parsedResult});
-    Lavender.EventDispatcher.dispatch(doneEvent);
+    this.dispatch(doneEvent);
 }
 
 Lavender.AbstractServiceAction.prototype.success = function (result) {
@@ -49,10 +50,10 @@ Lavender.AbstractServiceAction.prototype.success = function (result) {
     } catch (e) {
         var errorMessage = this.getErrorMessage() + "\n" + e.message + "\n" + e.stack;
         var errorEvent = new Lavender.ActionErrorEvent(Lavender.ActionErrorEvent.ERROR, {message:errorMessage});
-        Lavender.EventDispatcher.dispatch(errorEvent);
+        this.dispatch(errorEvent);
         var error = {name: 'error', message: errorMessage};
-        Lavender.Model.errorModel.errors.addItem(error);
-        Lavender.Model.errorModel.appError = true;
+        this.errorModel.errors.addItem(error);
+        this.errorModel.appError = true;
     } finally {
         this.opModel.asyncOperationCount -= 1;
         if (this.opModel.asyncOperationCount == 0) {
@@ -70,10 +71,10 @@ Lavender.AbstractServiceAction.prototype.fault = function (fault) {
     }
     var errorMessage = this.getFaultString() + fault.message;
     var errorEvent = new Lavender.ActionErrorEvent(Lavender.ActionErrorEvent.ERROR, {message:errorMessage});
-    Lavender.EventDispatcher.dispatch(errorEvent);
+    this.dispatch(errorEvent);
     var error = {name: fault.status, message: errorMessage};
-    Lavender.Model.errorModel.errors.addItem(error);
-    Lavender.Model.errorModel.appError = true;
+    this.errorModel.errors.addItem(error);
+    this.errorModel.appError = true;
     this.tearDown();
 }
 
