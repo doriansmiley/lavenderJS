@@ -8,6 +8,8 @@ Lavender.AbstractServiceAction = function (service, opModel, parser) {
 
     Lavender.Subject.prototype.constructor.call(this);
 
+    Lavender.ObjectUtils.mixin(Lavender.AbstractEventDispatcher, Lavender.AbstractServiceAction, this);
+
 }
 /************* Inherit from Subject for data binding *************/
 Lavender.ObjectUtils.extend(Lavender.Subject, Lavender.AbstractServiceAction);
@@ -25,7 +27,7 @@ Lavender.AbstractServiceAction.prototype.execute = function () {
 
 //abstract method for override
 Lavender.AbstractServiceAction.prototype.parseResponse = function (result) {
-
+    return result;
 }
 
 //abstract method for override
@@ -33,10 +35,17 @@ Lavender.AbstractServiceAction.prototype.executeDAOMethod = function () {
     return null;
 }
 
+Lavender.AbstractServiceAction.prototype.dispatchSuccess = function (parsedResult) {
+    //notify listeners and include all known values
+    var doneEvent = new Lavender.ActionSuccessEvent(Lavender.ActionSuccessEvent.SUCCESS,{result:parsedResult});
+    Lavender.EventDispatcher.dispatch(doneEvent);
+}
+
 Lavender.AbstractServiceAction.prototype.success = function (result) {
     try {
         //result is instance of Lavender.HttpSuccess
-        this.parseResponse(result);
+        var parsedResult = this.parseResponse(result);
+        this.dispatchSuccess(parsedResult);
     } catch (e) {
         var errorMessage = this.getErrorMessage() + "\n" + e.message + "\n" + e.stack;
         var errorEvent = new Lavender.ActionErrorEvent(Lavender.ActionErrorEvent.ERROR, {message:errorMessage});
