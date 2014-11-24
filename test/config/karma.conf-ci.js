@@ -23,7 +23,12 @@ module.exports = function(config) {
       base: 'SauceLabs',
       browserName: 'internet explorer',
       version: '9'
-    }
+    },
+      'SL_Firefox': {
+          base: 'SauceLabs',
+          browserName: 'firefox',
+          version: '26'
+      }
   };
 
   config.set({
@@ -60,7 +65,6 @@ module.exports = function(config) {
         '../model/recordset/*.js',
         '../model/**/*.js',
         '../services/**/*.js',
-        '../factory/**/*.js',
         'unit/**/*.js'
     ],
 
