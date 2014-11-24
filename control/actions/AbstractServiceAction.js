@@ -23,7 +23,7 @@ Lavender.AbstractServiceAction.prototype.execute = function () {
     this.opModel.asyncOperationComplete = false;
     this.opModel.asyncOperationCount += 1;
 
-    return this.executeDAOMethod();
+    return this.executeServiceMethod();
 }
 
 //abstract method for override
@@ -32,7 +32,7 @@ Lavender.AbstractServiceAction.prototype.parseResponse = function (result) {
 }
 
 //abstract method for override
-Lavender.AbstractServiceAction.prototype.executeDAOMethod = function () {
+Lavender.AbstractServiceAction.prototype.executeServiceMethod = function () {
     return null;
 }
 

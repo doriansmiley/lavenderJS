@@ -13,7 +13,7 @@ Lavender.ObjectUtils.extend(Lavender.Subject, Lavender.AbstractSynchronousAction
 Lavender.AbstractSynchronousAction.prototype.execute = function () {
     try {
         //result is instance of Lavender.HttpSuccess
-        this.executeDAOMethod();
+        this.executeServiceMethod();
         this.dispatchSuccess(this.getResultObj());
     } catch (e) {
         var errorMessage = this.getErrorMessage() + "\n" + e.message + "\n" + e.stack;
@@ -39,7 +39,7 @@ Lavender.AbstractSynchronousAction.prototype.dispatchSuccess = function (result)
 }
 
 //abstract method for override
-Lavender.AbstractSynchronousAction.prototype.executeDAOMethod = function () {
+Lavender.AbstractSynchronousAction.prototype.executeServiceMethod = function () {
 
 }
 
