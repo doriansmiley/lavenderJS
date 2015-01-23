@@ -4,24 +4,24 @@
 'use strict';
 
 /* jasmine specs for controllers go here */
-describe('JqueryHttpServiceTest ', function () {
+describe('XhrHttpService ', function () {
 
-    it('check JqueryHttpService function and values', function () {
-        var request = new Lavender.JqueryHttpService();
+    it('check XhrHttpService function and values', function () {
+        var request = new Lavender.XhrHttpService();
         var responder1 = {
             success:function(sucessObj){
-                console.log('JqueryHttpServiceTest.responder1 sucess called');
+                console.log('XhrHttpServiceTest.responder1 sucess called');
                 success = true;
                 successObject = sucessObj;
                 },
             fault:function(faultObj){
-                console.log('JqueryHttpServiceTest.responder1 fault called');
+                console.log('XhrHttpServiceTest.responder1 fault called');
             }
         };
         var success = false;
         var successObject;
-        var responder2 = { success:function(sucessObj){console.log('JqueryHttpServiceTest.responder2 sucess called')}, fault:function(faultObj){console.log('JqueryHttpServiceTest.responder2 fault called')} };
-        var responder3 = { success:function(sucessObj){console.log('JqueryHttpServiceTest.responder3 sucess called')}, fault:function(faultObj){console.log('JqueryHttpServiceTest.responder3 fault called')} };
+        var responder2 = { success:function(sucessObj){console.log('XhrHttpServiceTest.responder2 sucess called')}, fault:function(faultObj){console.log('XhrHttpServiceTest.responder2 fault called')} };
+        var responder3 = { success:function(sucessObj){console.log('XhrHttpServiceTest.responder3 sucess called')}, fault:function(faultObj){console.log('XhrHttpServiceTest.responder3 fault called')} };
         request.addResponder(responder1);
         request.addResponder(responder2);
         request.addResponder(responder3);
