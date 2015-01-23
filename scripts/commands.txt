@@ -50,6 +50,7 @@ $SPI_SDK_HOME/services/HttpSuccess.js \
 $SPI_SDK_HOME/services/AbstractHttpService.js \
 $SPI_SDK_HOME/services/JqueryHttpService.js \
 $SPI_SDK_HOME/services/AngularHttpService.js \
+$SPI_SDK_HOME/services/XhrHttpService.js \
 $SPI_SDK_HOME/control/actions/AbstractServiceAction.js \
 $SPI_SDK_HOME/control/actions/AbstractSynchronousAction.js \
 $SPI_SDK_HOME/global/Lavender.js \
