@@ -12,6 +12,10 @@ Lavender.ObjectUtils.extend(Lavender.AbstractHttpService, Lavender.XhrHttpServic
 
 Lavender.XhrHttpService.prototype.success = function (event) {
     var sucessObj = new Lavender.HttpSuccess(this.xhrRequest.response, this.xhrRequest.statusText, this.requestId);
+    if( this.xhrRequest.status != 200 ){
+        this.fault(sucessObj);
+        return;
+    }
     for (var responderIndex = 0; responderIndex < this.responders.length(); responderIndex++) {
         var responder = this.responders.getItemAt(responderIndex);
         responder.success(sucessObj);
