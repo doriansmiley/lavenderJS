@@ -32,7 +32,7 @@ Lavender.ArrayList.prototype.addItem = function (object) {
     this.validateItem(object);
     //Object are placed at the end of the array
     var index = this.aList.push(object);
-    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, null  ) );
+    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'add', item:object}  ) );
     return index;
 }
 
@@ -45,7 +45,7 @@ Lavender.ArrayList.prototype.addAll = function ( items ) {
             this.addItem(items[i]);
         }
     }
-    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, null  ) );
+    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'addAll', items:items}  ) );
 }
 
 Lavender.ArrayList.prototype.getItemAt = function (index) //Index must be a number
@@ -60,7 +60,7 @@ Lavender.ArrayList.prototype.getItemAt = function (index) //Index must be a numb
 
 Lavender.ArrayList.prototype.clear = function () {
     this.aList = [];
-    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, null  ) );
+    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'removeAll'}  ) );
 }
 
 Lavender.ArrayList.prototype.clearHash = function ( hash ) {
@@ -79,6 +79,7 @@ Lavender.ArrayList.prototype.removeItemAt = function (index) // index must be a 
 
 {
     var m_count = this.aList.length;
+    var item = this.getItemAt(index);
     if (m_count > 0 && index > -1 && index < this.aList.length) {
         switch (index) {
             case 0:
@@ -94,7 +95,7 @@ Lavender.ArrayList.prototype.removeItemAt = function (index) // index must be a 
                 break;
         }
     }
-    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, null  ) );
+    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'remove', item:item}  ) );
 }
 
 Lavender.ArrayList.prototype.insert = function (object, index, suppressChangeEvent) {
@@ -129,7 +130,7 @@ Lavender.ArrayList.prototype.insert = function (object, index, suppressChangeEve
         }
     }
     if( !suppressChangeEvent ){
-        this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, null  ) );
+        this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'add', item:object}  ) );
     }
     return m_returnValue;
 }
