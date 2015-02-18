@@ -49,7 +49,7 @@ Lavender.XhrHttpService.prototype.updateProgress = function (oEvent) {
     //oEvent.lengthComputable seems to always be false, this might be because the service is not sending back progress events though
     //so I've commented it our for now
     //if (oEvent.lengthComputable) {
-    var percentComplete = oEvent.loaded / oEvent.total;
+    var percentComplete = oEvent.loaded / ((oEvent.total > 0) ? oEvent.total : oEvent.loaded); //prevent division by zero when !oEvent.lengthComputable
     for (var responderIndex = 0; responderIndex < this.responders.length(); responderIndex++) {
         var responder = this.responders.getItemAt(responderIndex);
         responder.onProgress( percentComplete, this.requestId );
