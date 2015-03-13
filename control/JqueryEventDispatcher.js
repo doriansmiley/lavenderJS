@@ -6,7 +6,9 @@ Lavender.JqueryEventDispatcher = function (){
     Lavender.AbstractEventDispatcher.prototype.constructor.call(this);
     this.dispatcher = $(this);
 }
+/************* Inherit from AbstractEventDispatcher *************/
 Lavender.ObjectUtils.extend(Lavender.AbstractEventDispatcher, Lavender.JqueryEventDispatcher);
+
 Lavender.JqueryEventDispatcher.prototype.addEventListener = function(  event, instance, handler  ){//handler is string
     var proxy = jQuery.proxy( instance[handler], instance )
     this.dispatcher.on(event, proxy );

@@ -7,7 +7,9 @@ Lavender.AngularEventDispatcher = function(rootScope){
     Lavender.AbstractEventDispatcher.prototype.constructor.call(this);
     this.dispatcher = rootScope;//we use broadcast so be sure to pass $rootScope
 }
+/************* Inherit from AbstractEventDispatcher *************/
 Lavender.ObjectUtils.extend(Lavender.AbstractEventDispatcher, Lavender.AngularEventDispatcher);
+
 Lavender.AngularEventDispatcher.prototype.addEventListener = function(  event, instance, handler  ){//handler is string, event is string
     var proxy = jQuery.proxy( instance[handler], instance )
     var removeListenerFunction = this.dispatcher.$on(event, proxy );//Angular sends back a remove listener function in the call to $on
