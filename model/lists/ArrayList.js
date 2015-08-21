@@ -5,6 +5,7 @@ Lavender.ArrayList = function(source) {
     }
 
     this.aList = source; //initialize with an empty array
+    this.allowDuplicates = true;
 
     Lavender.Subject.prototype.constructor.call(this);
 
@@ -24,15 +25,26 @@ Lavender.ArrayList.prototype.source = function () {
     return this.aList;
 }
 
-Lavender.ArrayList.prototype.validateItem = function (object) {
-    //stub for override, overrides should use the instanceof keyword to determine if object is of the correct type
+Lavender.ArrayList.prototype.allowInsert = function (object, hash, key) {
+    var returnValue = true;
+    if( !this.allowDuplicates ){
+        if( hash !== null && hash !== undefined &&  key!== null && key !== undefined && object.hasOwnProperty(key) && object[key] !== null && object[key] !== undefined && hash[ object[key] ] !== null && hash[ object[key] ] !== undefined ){
+            returnValue = false;//the item is a duplicate based on the hash. sometimes we receive newly deserialized objects which makes a lookup based on equality a no go. Instead we look up the object in a hash based on some key
+        }else if( this.aList.indexOf(object) >= 0 ){
+            returnValue = false;//the item is a duplicate based on equality comparison
+        }
+    }
+    return returnValue;
 }
 
-Lavender.ArrayList.prototype.addItem = function (object) {
-    this.validateItem(object);
+Lavender.ArrayList.prototype.addItem = function (object, hash, key) {
+    if( !this.allowInsert( object, hash, key ) ){
+        //replace the existing item with the new item
+        return;
+    }
     //Object are placed at the end of the array
     var index = this.aList.push(object);
-    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'add', item:object}  ) );
+    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'add', item:object} ) );
     return index;
 }
 
@@ -45,7 +57,7 @@ Lavender.ArrayList.prototype.addAll = function ( items ) {
             this.addItem(items[i]);
         }
     }
-    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'addAll', items:items}  ) );
+    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'addAll', items:items} ) );
 }
 
 Lavender.ArrayList.prototype.getItemAt = function (index) //Index must be a number
@@ -95,13 +107,15 @@ Lavender.ArrayList.prototype.removeItemAt = function (index) // index must be a 
                 break;
         }
     }
-    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'remove', item:item}  ) );
+    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'remove', item:item} ) );
 }
 
-Lavender.ArrayList.prototype.insert = function (object, index, suppressChangeEvent) {
-    this.validateItem(object);
+Lavender.ArrayList.prototype.insert = function (object, index, suppressChangeEvent, hash, key ) {
     if( suppressChangeEvent === null || suppressChangeEvent === undefined ){
         suppressChangeEvent = false;
+    }
+    if( !this.allowInsert( object, hash, key ) ){
+        return;
     }
     var m_count = this.aList.length;
     var m_returnValue = -1;
@@ -130,7 +144,7 @@ Lavender.ArrayList.prototype.insert = function (object, index, suppressChangeEve
         }
     }
     if( !suppressChangeEvent ){
-        this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'add', item:object}  ) );
+        this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'add', item:object} ) );
     }
     return m_returnValue;
 }
