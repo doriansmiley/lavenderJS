@@ -9,7 +9,7 @@ Lavender.Config = function(){
     var _baseUrl;//String
     var _sessionId;//String
     var _serviceCode;//String
-    var _httpServiceCode = 'jquery';
+    var _httpServiceCode = 'xhr';
     var _webRoot = '';//default to empty string
     var _parserCode = undefined;
     var _exporterCode = undefined;
