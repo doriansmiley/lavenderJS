@@ -28,6 +28,12 @@ module.exports = function(config) {
           base: 'SauceLabs',
           browserName: 'firefox',
           version: '26'
+      },
+      sl_ie_11: {
+          base: 'SauceLabs',
+          browserName: 'internet explorer',
+          platform: 'Windows 8.1',
+          version: '11'
       }
   };
 
