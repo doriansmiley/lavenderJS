@@ -112,10 +112,11 @@ Lavender.RecordSet = function (timeToLive) {
             },
             set: function (val) {
                 if (_selectedPage != val) {
+                    //IMPORTANT: set the value first so responders to the SpiSdk.ImageAssetEvent.GET_IMAGE_ASSETS event know what page we need to load data for
+                    _selectedPage = val;
                     if( !this.pageLoaded( val ) ){
                         this.dispatch( new Lavender.RecordSetEvent(Lavender.RecordSetEvent.LOAD_PAGE_DATA, {recordSet:this}) );
                     }
-                    _selectedPage = val;
                     this.calculatePageList();
                     this.Notify(val, "selectedPage");
                     this.dispatch(new Lavender.RecordSetEvent(Lavender.RecordSetEvent.SELECTED_PAGE_CHANGE));
@@ -180,7 +181,7 @@ Lavender.RecordSet.prototype.clear = function()
 }
 
 Lavender.RecordSet.prototype.renewState = function () {
-    this.totalPages = (Math.ceil(this.results.length() / this.recordsPerPage));
+    this.totalPages = (Math.ceil(this.totalRecords / this.recordsPerPage));
     //loop over the collection and upate the cache
     this.resultsByPage = {};
     //loop through each page
