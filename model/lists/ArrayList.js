@@ -48,11 +48,11 @@ Lavender.ArrayList.prototype.addItem = function (object, hash, key) {
     return index;
 }
 
-Lavender.ArrayList.prototype.addAll = function ( items ) {
+Lavender.ArrayList.prototype.addAll = function ( items, replaceIndex ) {
     //add all items to the collection
     for( var i=0; i < items.length; i++ ){
         if( items[i].hasOwnProperty('addItemAt') && !isNaN( items[i].addItemAt ) ){
-            this.insert(items[i].item, items[i].addItemAt, true );
+            this.insert(items[i].item, items[i].addItemAt, true, null, null, replaceIndex );
         }else{
             this.addItem(items[i]);
         }
@@ -72,7 +72,7 @@ Lavender.ArrayList.prototype.getItemAt = function (index) //Index must be a numb
 
 Lavender.ArrayList.prototype.clear = function () {
     this.aList = [];
-    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'removeAll'}  ) );
+    this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'removeAll'} ) );
 }
 
 Lavender.ArrayList.prototype.clearHash = function ( hash ) {
@@ -110,9 +110,12 @@ Lavender.ArrayList.prototype.removeItemAt = function (index) // index must be a 
     this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'remove', item:item} ) );
 }
 
-Lavender.ArrayList.prototype.insert = function (object, index, suppressChangeEvent, hash, key ) {
+Lavender.ArrayList.prototype.insert = function (object, index, suppressChangeEvent, hash, key, replaceIndex ) {
     if( suppressChangeEvent === null || suppressChangeEvent === undefined ){
         suppressChangeEvent = false;
+    }
+    if( replaceIndex === null || replaceIndex === undefined ){
+        replaceIndex = false;
     }
     if( !this.allowInsert( object, hash, key ) ){
         return;
@@ -136,7 +139,8 @@ Lavender.ArrayList.prototype.insert = function (object, index, suppressChangeEve
                     }
                 }
                 var head = this.aList.slice(0, index);
-                var tail = this.aList.slice(index);
+                var tailIndex = (replaceIndex) ? index + 1 : index;//if we are to replace the current index in the array use index +1 which should drop the old item from the array
+                var tail = this.aList.slice(tailIndex);
                 tail.unshift(object);
                 this.aList = head.concat(tail);
                 m_returnValue = index;
@@ -147,6 +151,22 @@ Lavender.ArrayList.prototype.insert = function (object, index, suppressChangeEve
         this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE, {type:'add', item:object} ) );
     }
     return m_returnValue;
+}
+
+Lavender.ArrayList.prototype.changeIndex = function (fromIndex, toIndex, suppressChangeEvent) {
+    var object =  this.aList[fromIndex]
+    this.aList.splice(toIndex, 0, this.aList.splice(fromIndex, 1)[0]);
+    if( !suppressChangeEvent ){
+        this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE_ORDER, {type:'change', item:object, fromIndex:fromIndex, toIndex:toIndex} ) );
+    }
+}
+
+Lavender.ArrayList.prototype.swapIndex = function (fromIndex, toIndex, suppressChangeEvent) {
+    var object =  this.aList[fromIndex]
+    this.aList[toIndex] = this.aList.splice(fromIndex, 1, this.aList[toIndex])[0];
+    if( !suppressChangeEvent ){
+        this.dispatch( new Lavender.CollectionEvent( Lavender.CollectionEvent.COLLECTION_CHANGE_ORDER, {type:'swap', item:object, fromIndex:fromIndex, toIndex:toIndex} ) );
+    }
 }
 
 Lavender.ArrayList.prototype.indexOf = function (object, startIndex) {

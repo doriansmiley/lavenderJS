@@ -7,30 +7,43 @@
  *
  * We've omitted vertical alig as it was a hack to resolve and issue with TLF unro/redo
  */
-Lavender.RecordSet = function (timeToLive) {
+Lavender.RecordSet = function (timeToLive, listFunction) {
     if (timeToLive === null || timeToLive === undefined) {
         timeToLive = 600000;//default to one hour
+    }
+    if (listFunction === null || listFunction === undefined) {
+        listFunction = Lavender.ArrayList;//default to Lavender.AssetList
     }
     var _id;//String
     var _totalRecords;//Number
     var _totalPages;//Number
     var _selectedPage;//Number
     var _recordsPerPage;//Number
-    var _results = new Lavender.ArrayList();
-    var _pageList = new Lavender.ArrayList();
+    var _results = new listFunction();
+    var _pageList = new listFunction();
     var _createdOn;//Date
     var _timeToLive;//Number
     var _source;//String
+    var _routeController;//Object, used to load data from the API source
 
     this.resultsByPage = {};
     this.cacheTimer = undefined;
-    this.intervalId = setTimeout(this.clear, timeToLive);//func, delay[, param1, param2, ...]
+    this.intervalId = setTimeout(this.clear.bind(this), timeToLive);//func, delay[, param1, param2, ...]
     _results.addEventListener(Lavender.CollectionEvent.COLLECTION_CHANGE, this, 'resultCollectionChanged');
 
     Lavender.Subject.prototype.constructor.call(this);
     Lavender.ObjectUtils.mixin(Lavender.AbstractEventDispatcher, Lavender.RecordSet, this);
 
     this.addProperties({
+        routeController: {
+            get: function () {
+                return _routeController;
+            },
+            set: function (val) {
+                _routeController = val;
+                this.Notify(val, "routeController");
+            }
+        },
         source: {
             get: function () {
                 return _source;
@@ -112,10 +125,10 @@ Lavender.RecordSet = function (timeToLive) {
             },
             set: function (val) {
                 if (_selectedPage != val) {
-                    //IMPORTANT: set the value first so responders to the SpiSdk.ImageAssetEvent.GET_IMAGE_ASSETS event know what page we need to load data for
+                    //IMPORTANT: set the value first so responders to the Lavender.ImageAssetEvent.GET_IMAGE_ASSETS event know what page we need to load data for
                     _selectedPage = val;
                     if( !this.pageLoaded( val ) ){
-                        this.dispatch( new Lavender.RecordSetEvent(Lavender.RecordSetEvent.LOAD_PAGE_DATA, {recordSet:this}) );
+                        this.dispatch(new Lavender.RecordSetEvent(Lavender.RecordSetEvent.LOAD_PAGE_DATA, {recordSet:this}));
                     }
                     this.calculatePageList();
                     this.Notify(val, "selectedPage");
@@ -166,7 +179,7 @@ Lavender.RecordSet.prototype.calculatePageList = function () {
 }
 
 Lavender.RecordSet.prototype.pageLoaded = function ( pageNumber ) {
-    return this.resultsByPage[pageNumber] !== null && this.resultsByPage[pageNumber] !== undefined;
+    return this.resultsByPage[pageNumber] !== null && this.resultsByPage[pageNumber] !== undefined  && (this.resultsByPage[pageNumber].length() == this.recordsPerPage || pageNumber == this.totalPages);
 }
 
 
@@ -177,21 +190,18 @@ Lavender.RecordSet.prototype.clear = function()
     }
     this.totalRecords = 0;
     this.totalPages = 0;
+    this.resultsByPage[this.selectedPage] = new Lavender.AssetList();
+    this.resultsByPage = {};
     this.selectedPage = -1;
+    this.renewState();
 }
 
 Lavender.RecordSet.prototype.renewState = function () {
     this.totalPages = (Math.ceil(this.totalRecords / this.recordsPerPage));
-    //loop over the collection and upate the cache
-    this.resultsByPage = {};
     //loop through each page
     for( var pageIndex = 1; pageIndex <= this.totalPages; pageIndex++){
         var first = (pageIndex - 1) * this.recordsPerPage;
-        var endOfResults = false;
         var last = ((first + this.recordsPerPage) > this.totalRecords) ? this.totalRecords : first + this.recordsPerPage;
-        if( last > this.results.length() ){
-            last = this.results.length();
-        }
         var dp = new Lavender.ArrayList();
         if (this.results !== null && this.results !== undefined) {
             for (var i = first; i < last; i++) {
