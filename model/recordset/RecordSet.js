@@ -12,7 +12,7 @@ Lavender.RecordSet = function (timeToLive, listFunction) {
         timeToLive = 600000;//default to one hour
     }
     if (listFunction === null || listFunction === undefined) {
-        listFunction = Lavender.ArrayList;//default to Lavender.AssetList
+        listFunction = Lavender.ArrayList;//default to Lavender.ArrayList
     }
     var _id;//String
     var _totalRecords;//Number
@@ -190,7 +190,7 @@ Lavender.RecordSet.prototype.clear = function()
     }
     this.totalRecords = 0;
     this.totalPages = 0;
-    this.resultsByPage[this.selectedPage] = new Lavender.AssetList();
+    this.resultsByPage[this.selectedPage] = new Lavender.ArrayList();
     this.resultsByPage = {};
     this.selectedPage = -1;
     this.renewState();
