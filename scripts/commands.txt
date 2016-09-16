@@ -30,6 +30,7 @@ $SPI_SDK_HOME/util/CoordsUtils.js \
 $SPI_SDK_HOME/util/Geometry.js \
 $SPI_SDK_HOME/util/XmlUtils.js \
 $SPI_SDK_HOME/util/ResizeUtils.js \
+$SPI_SDK_HOME/util/UuidUtils.js \
 $SPI_SDK_HOME/events/AbstractEvent.js \
 $SPI_SDK_HOME/events/ActionErrorEvent.js \
 $SPI_SDK_HOME/events/ActionSuccessEvent.js \
