@@ -12,8 +12,7 @@ Lavender.ActionErrorEvent = function( eventType, payload ){
     if( payload.message === null || payload.message === undefined ){
         throw new Error('Lavender.ActionErrorEvent: payload.message is required');
     }
-     //Important, because we have to set the AbstractEvent prototype to a new jQuery even instance we can't use prototype.constructor.call as it will call the $.Event constructor.
-     Lavender.AbstractEvent.call(this, eventType, payload);
+    Lavender.AbstractEvent.prototype.constructor.call(this, eventType, payload);
 }
 /************* Inherit from Subject for data binding *************/
 Lavender.ObjectUtils.extend( Lavender.AbstractEvent, Lavender.ActionErrorEvent );
