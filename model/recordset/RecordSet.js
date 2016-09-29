@@ -9,7 +9,7 @@
  */
 Lavender.RecordSet = function (timeToLive, listFunction) {
     if (timeToLive === null || timeToLive === undefined) {
-        timeToLive = 600000;//default to one hour
+        timeToLive = NaN;//default to one hour
     }
     if (listFunction === null || listFunction === undefined) {
         listFunction = Lavender.ArrayList;//default to Lavender.ArrayList
@@ -28,7 +28,9 @@ Lavender.RecordSet = function (timeToLive, listFunction) {
 
     this.resultsByPage = {};
     this.cacheTimer = undefined;
-    this.intervalId = setTimeout(this.clear.bind(this), timeToLive);//func, delay[, param1, param2, ...]
+    if(!isNaN(timeToLive)){
+        this.intervalId = setTimeout(this.clear.bind(this), timeToLive);
+    }//func, delay[, param1, param2, ...]
     _results.addEventListener(Lavender.CollectionEvent.COLLECTION_CHANGE, this, 'resultCollectionChanged');
 
     Lavender.Subject.prototype.constructor.call(this);
@@ -59,10 +61,7 @@ Lavender.RecordSet = function (timeToLive, listFunction) {
             },
             set: function (val) {
                 _timeToLive = val;
-                if( this.intervalId !== null && this.intervalId !== undefined ){
-                    clearInterval( this.intervalId );
-                    this.intervalId = setTimeout(this.clear, val);//func, delay[, param1, param2, ...]
-                }
+                this.clearInterval();
                 this.Notify(val, "timeToLive");
             }
         },
@@ -178,6 +177,13 @@ Lavender.RecordSet.prototype.calculatePageList = function () {
     this.pageList = this.resultsByPage[this.selectedPage];
 }
 
+Lavender.RecordSet.prototype.clearInterval = function () {
+    if( this.intervalId !== null && this.intervalId !== undefined ){
+        clearInterval( this.intervalId );
+        this.intervalId = setTimeout(this.clear, val);//func, delay[, param1, param2, ...]
+    }
+}
+
 Lavender.RecordSet.prototype.pageLoaded = function ( pageNumber ) {
     return this.resultsByPage[pageNumber] !== null && this.resultsByPage[pageNumber] !== undefined  && (this.resultsByPage[pageNumber].length() == this.recordsPerPage || pageNumber == this.totalPages);
 }
@@ -226,7 +232,7 @@ Lavender.RecordSet.prototype.resultCollectionChanged = function (event) {
 }
 
 Lavender.RecordSet.prototype.destroy = function () {
-    clearInterval( this.intervalId );
+    this.clearInterval();
     this.results = null;
     this.pageList = null;
     this.resultsByPage = null;
