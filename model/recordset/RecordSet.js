@@ -28,6 +28,7 @@ Lavender.RecordSet = function (timeToLive, listFunction) {
 
     this.resultsByPage = {};
     this.cacheTimer = undefined;
+    //TODO:have this reload data instead of clearing it
     if(!isNaN(timeToLive)){
         this.intervalId = setTimeout(this.clear.bind(this), timeToLive);
     }//func, delay[, param1, param2, ...]
@@ -61,7 +62,11 @@ Lavender.RecordSet = function (timeToLive, listFunction) {
             },
             set: function (val) {
                 _timeToLive = val;
-                this.clearInterval();
+                if( this.intervalId !== null && this.intervalId !== undefined ){
+                    clearInterval( this.intervalId );
+                    //TODO:have this reload data instead of clearing it
+                    this.intervalId = setTimeout(this.clear.bind(this), val);//func, delay[, param1, param2, ...]
+                }
                 this.Notify(val, "timeToLive");
             }
         },
