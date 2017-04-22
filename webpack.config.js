@@ -7,7 +7,7 @@ module.exports = {
         'lavenderJS-min-UMD': './src/index.ts'
     },
     output: {
-        path: path.resolve(__dirname, '_bundles'),
+        path: path.resolve(__dirname, 'lib'),
         filename: '[name].js',
         libraryTarget: 'umd',
         library: 'Lavender',
