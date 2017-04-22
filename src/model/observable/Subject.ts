@@ -1,0 +1,66 @@
+/**
+ * Created by dsmiley on 4/18/17.
+ */
+import {Binder} from './Binder';
+import {IObserver} from "./IObserver";
+import { IBindable } from './IBindable';
+
+export class Subject implements IBindable {
+    private observerHash:Object = {};
+    protected binder:Binder = new Binder();
+
+    constructor(){};
+    
+    public notify(value:any, chain:String):void{
+        if (!this.observerHash.hasOwnProperty(chain) || this.observerHash[chain] == null || this.observerHash[chain] == undefined) {
+            //property is not bound
+            return;
+        }
+        let m_count = this.observerHash[chain].length;
+        //TODO: Once ArrayList is ported over comment this back in and remove the line above
+        //let m_count = this.observerHash[chain].length();
+
+        for (let i = 0; i < m_count; i++) {
+            (this.observerHash[chain][i] as IObserver).update(value, chain);
+            //TODO: Once ArrayList is ported over comment this back in and remove the line above
+            //(this.observerHash[chain].getItemAt(i) as IObserver).update(value, chain);
+        }
+    }
+
+    public addObserver(observer:IObserver):void{
+        if (!this.observerHash.hasOwnProperty(observer.chain) || this.observerHash[observer.chain] == null || this.observerHash[observer.chain] == undefined) {
+            this.observerHash[observer.chain] = [] as Array<IObserver>;
+            //TODO: Once ArrayList is ported over comment this back in and remove the line above
+            //this.observerHash[observer.chain] = new Lavender.ArrayList ();
+        }
+        this.observerHash[observer.chain].push(observer);
+        //TODO: Once ArrayList is ported over comment this back in and remove the line above
+        //this.observerHash[observer.chain].addItem(observer);
+    }
+
+    public removeObserver(observer:IObserver):void{
+        if (!this.observerHash.hasOwnProperty(observer.chain) || this.observerHash[observer.chain] == null || this.observerHash[observer.chain] == undefined) {
+            throw 'Property not found in registered observers';
+        }
+        let m_count = this.observerHash[observer.chain].length;
+        let index = m_count.indexOf(observer, 0);
+        if (m_count > 0 && index > -1 && index < this.observerHash[observer.chain].length) {
+            switch (index) {
+                case 0:
+                    this.observerHash[observer.chain].shift();
+                    break;
+                case m_count - 1:
+                    this.observerHash[observer.chain].pop();
+                    break;
+                default:
+                    let head = this.observerHash[observer.chain].slice(0, index);
+                    let tail = this.observerHash[observer.chain].slice(index + 1);
+                    this.observerHash[observer.chain] = (head as Array).concat(tail);
+                    break;
+            }
+        }
+        //TODO: Once ArrayList is ported over comment this back in and remove everything above to line 41
+        //this.observerHash[observer.chain].removeItemAt(this.observerHash[observer.chain].indexOf(observer, 0));
+    }
+
+}

@@ -1,0 +1,27 @@
+{
+  "name": "lavenderjs",
+  "version": "1.0.0",
+  "description": "javascript microarchitecture",
+  "main": "webpack.config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://doriansmiley@yahoo.com@github.com/doriansmiley/lavenderJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doriansmiley/lavenderJS/issues"
+  },
+  "homepage": "https://github.com/doriansmiley/lavenderJS#readme",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.1.2",
+    "typescript": "^2.2.2",
+    "webpack": "^2.4.1"
+  }
+}
