@@ -24,7 +24,7 @@ export class ChangeWatcher implements IObserver {
         this.cssProperty = cssProperty;
     };
 
-    public update(value:any, chain:Object):void {
+    public update(value:any, chain?:Object):void {
         if (this.isCSS) {
             this.instance[this.chainProp](this.cssProperty, value);
         }
