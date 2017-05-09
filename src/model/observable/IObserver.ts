@@ -2,10 +2,10 @@
  * Created by dsmiley on 4/18/17.
  */
 export interface IObserver{
-    chain:String;
+    chain:string;
     instance:Object;
-    chainProp:String;
+    chainProp:string;
     isCSS:Boolean;
-    cssProperty:String;
+    cssProperty:string;
     update(value:any, chain:Object):void;
 }

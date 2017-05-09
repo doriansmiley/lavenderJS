@@ -5,13 +5,13 @@ import { IObserver } from './IObserver';
 
 export class ChangeWatcher implements IObserver {
 
-    readonly chain:String;
+    readonly chain:string;
     readonly instance:Object;
-    readonly chainProp:String;
-    readonly isCSS:Boolean;
-    readonly cssProperty:String;
+    readonly chainProp:string;
+    readonly isCSS:boolean;
+    readonly cssProperty:string;
 
-    constructor(hostProp:String, chainInstance:Object, chainPropToWatch:String, isCSS?:Boolean = false, cssProperty?:String) {
+    constructor(hostProp:string, chainInstance:Object, chainPropToWatch:string, isCSS:boolean = false, cssProperty?:string) {
 
         if(isCSS && !cssProperty){
             throw new Error('cssProperty property is required when isCSS param is true')

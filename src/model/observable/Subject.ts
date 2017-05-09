@@ -11,7 +11,7 @@ export class Subject implements IBindable {
 
     constructor(){};
     
-    public notify(value:any, chain:String):void{
+    public notify(value:any, chain:string):void{
         if (!this.observerHash.hasOwnProperty(chain) || this.observerHash[chain] == null || this.observerHash[chain] == undefined) {
             //property is not bound
             return;
@@ -55,7 +55,7 @@ export class Subject implements IBindable {
                 default:
                     let head = this.observerHash[observer.chain].slice(0, index);
                     let tail = this.observerHash[observer.chain].slice(index + 1);
-                    this.observerHash[observer.chain] = (head as Array).concat(tail);
+                    this.observerHash[observer.chain] = (head as Array<IObserver>).concat(tail);
                     break;
             }
         }

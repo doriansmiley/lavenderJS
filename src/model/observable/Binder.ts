@@ -19,7 +19,7 @@ export class Binder{
 
     constructor() {};
 
-    public bind (host:IBindable, hostProp:String, chain:Object, chainProp:String, isCSS?:Boolean, cssProperty?:String, group?:String = 'default'):void{
+    public bind (host:IBindable, hostProp:string, chain:Object, chainProp:string, isCSS:boolean = false, cssProperty:string = null, group:string = 'default'):void{
         let changeWatcher:IObserver = BindingUtils.bind(host, hostProp, chain, chainProp, isCSS, cssProperty);
 
         if (!this.bindingGroups.hasOwnProperty(group)){
@@ -29,7 +29,7 @@ export class Binder{
         this.bindingGroups[group].push(binding);
     }
     
-    public unbind (group?:String = 'default'):void{
+    public unbind (group:string = 'default'):void{
         let bindings = this.bindingGroups[group];
 
         if (bindings){
