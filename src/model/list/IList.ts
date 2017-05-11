@@ -4,17 +4,17 @@
 export interface IList {
     allowDuplicates:boolean;
     length:number;
-    clone();
-    source();
-    allowInsert(object:any, hash?:Object, key?:string);
-    addItem(object:any, hash?:Object, key?:string);
-    addAll( items:Array<any>, replaceIndex?:number );
-    getItemAt(index:number);
-    clear();
-    removeItemAt(index:number);
-    insert(object:any, index:number, suppressChangeEvent:boolean, hash?:Object, key?:string, replaceIndex?:number );
-    changeIndex(fromIndex:number, toIndex:number, suppressChangeEvent?:boolean);
-    swapIndex(fromIndex:number, toIndex:number, suppressChangeEvent?:boolean);
-    indexOf(object:any, startIndex?:number);
-    lastIndexOf(object:any, startIndex?:number);
+    clone():IList;
+    source():Array<any>;
+    allowInsert(object:any, hash?:Object, key?:string):boolean;
+    addItem(object:any, hash?:Object, key?:string):void;
+    addAll( items:Array<any>, replaceIndex?:boolean ):void;
+    getItemAt(index:number):any;
+    clear():void;
+    removeItemAt(index:number):void;
+    insert(object:any, index:number, suppressChangeEvent:boolean, hash?:Object, key?:string, replaceIndex?:boolean ):number;
+    changeIndex(fromIndex:number, toIndex:number, suppressChangeEvent?:boolean):void;
+    swapIndex(fromIndex:number, toIndex:number, suppressChangeEvent?:boolean):void;
+    indexOf(object:any, startIndex?:number):number;
+    lastIndexOf(object:any, startIndex?:number):number;
 }
