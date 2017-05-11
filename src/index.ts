@@ -16,3 +16,8 @@ export * from './control/AbstractEventDispatcher';
 export * from './events/IEvent';
 export * from './events/AbstractEvent';
 export * from './events/CollectionEvent';
+export * from './control/responder/IFault';
+export * from './control/responder/IResult';
+export * from './control/responder/IResponder';
+export * from './control/actions/IAction';
+export * from './control/service/IService';
