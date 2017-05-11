@@ -7,4 +7,5 @@ export * from './model/observable/IBindable';
 export * from './model/observable/ChangeWatcher';
 export * from './model/observable/Binder';
 export * from './model/observable/Subject';
+export * from './model/list/IList';
 export * from './util/BindingUtils';

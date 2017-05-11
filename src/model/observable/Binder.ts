@@ -33,7 +33,7 @@ export class Binder{
         let bindings = this.bindingGroups[group];
 
         if (bindings){
-            bindings.forEach(function (bindingData){
+            bindings.forEach(bindingData => {
                 bindingData.host.removeObserver(bindingData.watcher);
             });
 

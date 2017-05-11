@@ -16,7 +16,7 @@ export class Subject implements IBindable {
             //property is not bound
             return;
         }
-        this.observerHash[chain].forEach(function (observer){
+        this.observerHash[chain].forEach(observer => {
             (observer as IObserver).update(value, chain);
         });
     }
