@@ -16,15 +16,9 @@ export class Subject implements IBindable {
             //property is not bound
             return;
         }
-        let m_count = this.observerHash[chain].length;
-        //TODO: Once ArrayList is ported over comment this back in and remove the line above
-        //let m_count = this.observerHash[chain].length();
-
-        for (let i = 0; i < m_count; i++) {
-            (this.observerHash[chain][i] as IObserver).update(value, chain);
-            //TODO: Once ArrayList is ported over comment this back in and remove the line above
-            //(this.observerHash[chain].getItemAt(i) as IObserver).update(value, chain);
-        }
+        this.observerHash[chain].forEach(function (observer){
+            (observer as IObserver).update(value, chain);
+        });
     }
 
     public addObserver(observer:IObserver):void{
@@ -42,8 +36,11 @@ export class Subject implements IBindable {
         if (!this.observerHash.hasOwnProperty(observer.chain) || this.observerHash[observer.chain] == null || this.observerHash[observer.chain] == undefined) {
             throw 'Property not found in registered observers';
         }
+        //TODO: Once ArrayList is ported over comment this back in and remove everything above to line 41
+        //this.observerHash[observer.chain].removeItemAt(this.observerHash[observer.chain].indexOf(observer, 0));
+        //TODO: Once ArrayList is ported over remove this
         let m_count = this.observerHash[observer.chain].length;
-        let index = m_count.indexOf(observer, 0);
+        let index = this.observerHash[observer.chain].indexOf(observer,0);
         if (m_count > 0 && index > -1 && index < this.observerHash[observer.chain].length) {
             switch (index) {
                 case 0:
@@ -59,8 +56,6 @@ export class Subject implements IBindable {
                     break;
             }
         }
-        //TODO: Once ArrayList is ported over comment this back in and remove everything above to line 41
-        //this.observerHash[observer.chain].removeItemAt(this.observerHash[observer.chain].indexOf(observer, 0));
     }
 
 }

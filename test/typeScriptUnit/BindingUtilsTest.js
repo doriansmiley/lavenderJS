@@ -1,9 +1,9 @@
 'use strict';
 
 /* jasmine specs for controllers go here */
-describe('Lavender.ChangeWatcher', function(){
+describe('Lavender.BindingUtils', function(){
 
-    it('Testing update method', function() {
+    it('Testing bind method', function() {
         var testInstance = {
             _color:null,
             color:function(value,chain){
@@ -12,7 +12,7 @@ describe('Lavender.ChangeWatcher', function(){
             text:null
         }
         var host = new Lavender.Subject();
-        
+
         var colorWatcher = Lavender.BindingUtils.bind(host, 'color', testInstance, 'color');//bind(host:IBindable, hostProp:string, chain:Object, chainProp:string, isCSS?:boolean, cssProperty?:string
         var textWatcher = Lavender.BindingUtils.bind(host, 'text', testInstance, 'text');//bind(host:IBindable, hostProp:string, chain:Object, chainProp:string, isCSS?:boolean, cssProperty?:string
 
