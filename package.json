@@ -21,12 +21,16 @@
   "homepage": "https://github.com/doriansmiley/lavenderJS#readme",
   "devDependencies": {
     "awesome-typescript-loader": "^3.1.2",
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-mocha-test": "^0.13.2",
     "jasmine": "^2.6.0",
     "karma": "^1.7.0",
     "karma-chrome-launcher": "^2.1.1",
     "karma-firefox-launcher": "^1.0.1",
     "karma-jasmine": "^1.1.0",
     "karma-junit-reporter": "^1.2.0",
+    "mocha": "^3.3.0",
     "typescript": "^2.2.2",
     "webpack": "^2.4.1"
   }
