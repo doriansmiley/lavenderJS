@@ -89,6 +89,18 @@ export class ArrayList extends Subject implements IList, AbstractEventDispatcher
         this.aList = [] as Array<any>;
         this.dispatch( new CollectionEvent( CollectionEvent.COLLECTION_CHANGE, {type:'removeAll'} ) );
     }
+
+    public clearHash(hash:Object):void{
+        for (var prop in hash ) {
+            hash[ prop ] = null;
+            delete hash[ prop ];
+        }
+    }
+
+    public removeItemFromHash(hash:Object, key:string):void{
+        hash[ key ] = null;
+        delete hash[ key ];
+    }
     
     public removeItemAt(index:number):void{
         let m_count = this.aList.length;
