@@ -6,7 +6,7 @@ import {IObserver} from "./IObserver";
 import { IBindable } from './IBindable';
 
 export class Subject implements IBindable {
-    private observerHash:Object = {};
+    protected observerHash:Object = {};
     protected binder:Binder = new Binder();
 
     constructor(){};
