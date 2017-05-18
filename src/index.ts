@@ -12,6 +12,7 @@ export * from './model/list/ArrayList';
 export * from './model/recordset/RecordSet';
 export * from './model/recordset/RecordSetList';
 export * from './model/recordset/RecordSetModel';
+export * from './model/AsyncOperationModel';
 export * from './util/BindingUtils';
 export * from './util/ObjectUtils';
 export * from './control/IEventDispatcher';
