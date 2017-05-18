@@ -6,8 +6,8 @@ import {Subject} from '../observable/Subject';
 import {ObjectUtils} from '../../util/ObjectUtils';
 import {AbstractEventDispatcher} from '../../control/AbstractEventDispatcher';
 import {IEventDispatcher} from '../../control/IEventDispatcher';
-import {CollectionEvent} from '../../events/CollectionEvent'
-import {IEvent} from '../../events/IEvent'
+import {CollectionEvent} from '../../events/CollectionEvent';
+import {IEvent} from '../../events/IEvent';
 
 export class ArrayList extends Subject implements IList, AbstractEventDispatcher{
     private aList:Array<any>; //initialize with an empty array
