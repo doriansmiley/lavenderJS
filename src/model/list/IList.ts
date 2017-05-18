@@ -1,7 +1,9 @@
 /**
  * Created by dsmiley on 4/18/17.
  */
-export interface IList {
+import {IEventDispatcher} from '../../control/IEventDispatcher';
+
+export interface IList extends IEventDispatcher{
     allowDuplicates:boolean;
     length:number;
     clone():IList;

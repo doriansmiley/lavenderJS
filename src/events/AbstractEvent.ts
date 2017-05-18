@@ -7,7 +7,7 @@ export abstract class AbstractEvent implements IEvent{
     public type:string;
     public payload:Object;
 
-    constructor(type, payload){
+    constructor(type:string, payload?:Object){
         this.type = type;
         this.payload = payload;
     }

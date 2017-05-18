@@ -6,7 +6,7 @@ import {AbstractEvent} from './AbstractEvent';
 
 export class CollectionEvent extends AbstractEvent{
     
-    constructor(type, payload){
+    constructor(type:string, payload?:Object){
         super(type, payload)
     }
     
