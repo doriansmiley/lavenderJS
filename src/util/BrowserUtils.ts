@@ -15,7 +15,7 @@ export class BrowserInfo {
 export class BrowserUtils {
     static uaMatch(ua):BrowserInfo {
         ua = ua.toLowerCase();
-        var match = /(ipad).*(?:safari)[ \/]([\w.]+)/.exec( ua ) ||
+        let match = /(ipad).*(?:safari)[ \/]([\w.]+)/.exec( ua ) ||
             /(android)[ chrome\/]([\w.]+)/.exec( ua ) ||//MUST BE BEFORE CHROME
             /(chrome)[ \/]([\w.]+)/.exec( ua ) ||
             /(safari)[ \/]([\w.]+)/.exec( ua ) ||
@@ -40,7 +40,7 @@ export class BrowserUtils {
     }
 
     static getBrowser():BrowserInfo {
-        var returnValue:BrowserInfo = new BrowserInfo('nodeJS', 'nodeJS')
+        let returnValue:BrowserInfo = new BrowserInfo('nodeJS', 'nodeJS')
         try{
             if(navigator){
                 returnValue = BrowserUtils.uaMatch(navigator.userAgent);
