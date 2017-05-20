@@ -18,6 +18,7 @@ export * from './model/ErrorModel';
 export * from './util/BindingUtils';
 export * from './util/ObjectUtils';
 export * from './util/BrowserUtils';
+export * from './util/ColorUtils';
 export * from './control/IEventDispatcher';
 export * from './control/AbstractEventDispatcher';
 export * from './events/IEvent';

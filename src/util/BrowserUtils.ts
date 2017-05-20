@@ -13,7 +13,7 @@ export class BrowserInfo {
 }
 
 export class BrowserUtils {
-    static uaMatch(ua):BrowserInfo {
+    static uaMatch(ua:string):BrowserInfo {
         ua = ua.toLowerCase();
         let match = /(ipad).*(?:safari)[ \/]([\w.]+)/.exec( ua ) ||
             /(android)[ chrome\/]([\w.]+)/.exec( ua ) ||//MUST BE BEFORE CHROME
