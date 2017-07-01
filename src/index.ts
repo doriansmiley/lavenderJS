@@ -23,6 +23,7 @@ export * from './util/CoordsUtils';
 export * from './util/CopyUtils';
 export * from './util/Geometry';
 export * from './util/MathUtils';
+export * from './util/Point';
 export * from './control/IEventDispatcher';
 export * from './control/AbstractEventDispatcher';
 export * from './events/IEvent';
