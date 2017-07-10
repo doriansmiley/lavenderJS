@@ -3,7 +3,7 @@ module.exports = function (config) {
         basePath: '../',
 
         files: [
-            '../lib/lavenderJS-min-UMD.js',
+            '../lib/lavenderJS-UMD.min.js',
             '../global/Lavender.js',
             'typeScriptUnit/**/*.js'
         ],
