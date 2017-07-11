@@ -40,4 +40,12 @@ export class Point{
     public magnitude():number{
         return Point.distance(new Point(0, 0), this);
     }
+
+    public static distance(p1:Point,p2:Point):number{
+        return Math.sqrt(Math.pow(p2.x - p1.x, 2) + Math.pow(p2.y - p1.y, 2));
+    }
+
+    public static direction(p1:Point,p2:Point):number{
+        return Math.atan2( p2.y - p1.y, p2.x - p1.x);
+    }
 }
