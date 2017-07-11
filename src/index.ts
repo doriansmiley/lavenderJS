@@ -26,6 +26,7 @@ export * from './util/MathUtils';
 export * from './util/Point';
 export * from './util/Matrix';
 export * from './util/MatrixUtils';
+export * from './util/URLUtils';
 export * from './control/IEventDispatcher';
 export * from './control/AbstractEventDispatcher';
 export * from './events/IEvent';
