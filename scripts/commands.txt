@@ -18,8 +18,12 @@ export SPI_SDK_HOME=/Users/dsmiley/workspace/lavenderJS
 cd $SPI_SDK_HOME
 sh ./scripts/typescript.sh
 
-#compile typescript
+#compile typescript and webpack
+export SPI_SDK_HOME=~/workspace/lavenderJS
+cd $SPI_SDK_HOME
+npm run build
 
+#build webpack
 export SPI_SDK_HOME=/Users/dsmiley/workspace/lavenderJS
 cd $SPI_SDK_HOME
 ./node_modules/.bin/webpack --config webpack.config.js

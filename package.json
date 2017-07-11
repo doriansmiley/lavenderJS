@@ -2,12 +2,15 @@
   "name": "lavenderjs",
   "version": "1.0.0",
   "description": "javascript microarchitecture",
-  "main": "webpack.config.js",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+	"clean-dist": "rimraf ./lib/*",
+	"prebuild": "npm run clean-dist",
+    "build": "tsc && webpack",
+    "test": "grunt"
   },
   "repository": {
     "type": "git",
@@ -31,6 +34,7 @@
     "karma-jasmine": "^1.1.0",
     "karma-junit-reporter": "^1.2.0",
     "mocha": "^3.3.0",
+    "rimraf": "^2.6.1",
     "typescript": "^2.2.2",
     "webpack": "^2.4.1"
   }

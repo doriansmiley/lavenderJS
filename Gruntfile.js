@@ -40,7 +40,7 @@ module.exports = function(grunt) {
                             );
                         });
                         expect = chai.expect;
-                        Lavender = require('./lib/lavenderJS-min-UMD.js');
+                        Lavender = require('./lib/lavenderJS-UMD.min.js');
                         jasmine = {};
                     }
                 },

@@ -4,7 +4,7 @@ var webpack = require('webpack');
 module.exports = {
     entry: {
         'lavenderJS-UMD': './src/index.ts',
-        'lavenderJS-min-UMD': './src/index.ts'
+        'lavenderJS-UMD.min': './src/index.ts'
     },
     output: {
         path: path.resolve(__dirname, 'lib'),
