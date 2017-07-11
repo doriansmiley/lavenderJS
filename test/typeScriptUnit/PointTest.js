@@ -4,13 +4,28 @@
 describe('Lavender.Point', function(){
 
     it('Testing Lavender.Point', function() {
-        console.log(Lavender.Point.toFixed(Lavender.Point.degreeToRadian(180),2));
-        expect(Lavender.Point.degreeToRadian(180)).toBe(3.141592653589793);
-        expect(Lavender.Point.radianToDegree(3.14159)).toBe(179.99984796050427);
-        expect(Lavender.Point.toFixed(Lavender.Point.degreeToRadian(180),2)).toBe(3.14);
-        expect(Lavender.Point.isEven(Lavender.Point.degreeToRadian(180))).toBe(false);
-        expect(Lavender.Point.isEven(2)).toBe(true);
-
+        var point = Lavender.Point();
+        expect(point.x).toBe(0);
+        expect(point.y).toBe(0);
+        point.x = 5;
+        point.y = 15;
+        expect(point.x).toBe(5);
+        expect(point.y).toBe(15);
+        var point2 = Lavender.Point(20,25);
+        expect(point2.x).toBe(20);
+        expect(point2.y).toBe(25);
+        console.log(Lavender.Point.distance(point, point2));
+        console.log(Lavender.Point.direction(point, point2));
+        expect(point2.add(point)).toBe(false);
+        expect(point2.x).toBe(10);
+        expect(point2.y).toBe(30);
+        expect(point2.subtract(point)).toBe(false);
+        expect(point2.x).toBe(5);
+        expect(point2.y).toBe(15);
+        expect(point2.scale(10)).toBe(false);
+        expect(point2.x).toBe(50);
+        expect(point2.y).toBe(150);
+        console.log(point2.magnitude());
     });
 
 });
