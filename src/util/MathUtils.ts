@@ -8,8 +8,7 @@ export class MathUtils{
     public static radianToDegree(radAngle:number):number{
         return radAngle * 180 / Math.PI;
     }
-    public static toFixed(number:number, precision?:number):number{
-        precision = precision || 10;
+    public static toFixed(number:number, precision:number=10):number{
         var multiplier = Math.pow( 10, precision );
         return Math.round( number * multiplier ) / multiplier;
     }
