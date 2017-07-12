@@ -12,8 +12,8 @@ export class URLUtils{
             defaultValue='';
         }
         key = key.replace(/[\[]/,'\\\[').replace(/[\]]/,'\\\]');
-        var regex = new RegExp('[\\?&]'+key+'=([^&#]*)');
-        var qs = regex.exec(location.toLowerCase());//usually window.location.href.toLowerCase()
+        let regex = new RegExp('[\\?&]'+key+'=([^&#]*)');
+        let qs = regex.exec(location.toLowerCase());//usually window.location.href.toLowerCase()
         if(qs == null){
             return defaultValue;
         }else{
