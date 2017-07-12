@@ -16,7 +16,6 @@ export declare class PathUtils {
     static rotatePath(arrPath: pathArray, aroundPoint: Point, degAngle: number, updateSource?: boolean): pathArray;
     static convertPathFromLocalToGlobal(arrPath: pathArray, containerParams: containerParams): pathArray;
     static convertPathFromGlobalToLocal(arrPath: pathArray, containerParams: containerParams): pathArray;
-    static drawPath(context: any, arrPath: pathArray): void;
 }
 export declare class PathParser {
     private arrPath;
