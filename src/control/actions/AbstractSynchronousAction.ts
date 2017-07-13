@@ -57,6 +57,11 @@ export abstract class AbstractSynchronousAction extends Subject implements IActi
 
     }
 
+    //required by interface, but not used in sync actions
+    public onProgress(progress:number){
+
+    }
+
     //Override this method in subclasses
     protected getResultObj():Object{
         return null;

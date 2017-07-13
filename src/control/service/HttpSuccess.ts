@@ -8,6 +8,12 @@ export class HttpSuccess implements IResult{
     public requestId:string;
     
     constructor(resultObj:any, status:number, requestId:string){
+        if( resultObj === null || resultObj === undefined && status != 304){
+            throw new Error('resultObj is required');
+        }
+        if( status === null || status === undefined ){
+            throw new Error('status is required');
+        }
         this.resultObj = resultObj;
         this.status = status;
         this.requestId = requestId;

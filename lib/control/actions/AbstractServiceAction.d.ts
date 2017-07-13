@@ -29,6 +29,7 @@ export declare abstract class AbstractServiceAction extends Subject implements I
     protected dispatchSuccess(parsedResult: Object): void;
     success(result: IResult): void;
     fault(fault: IFault): void;
+    onProgress(progress: number): void;
     protected getFaultString(): string;
     protected getErrorMessage(): string;
     protected executionError(): void;

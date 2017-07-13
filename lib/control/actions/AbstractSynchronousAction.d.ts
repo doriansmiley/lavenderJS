@@ -20,6 +20,7 @@ export declare abstract class AbstractSynchronousAction extends Subject implemen
     execute(): string;
     success(result: IResult): void;
     fault(fault: IFault): void;
+    onProgress(progress: number): void;
     protected getResultObj(): Object;
     protected dispatchSuccess(result: any): void;
     protected executeServiceMethod(): void;

@@ -6,6 +6,6 @@ import {IResponder} from '../responder/IResponder';
 export interface IService{
     requestId:string;
     addResponder(reponder:IResponder):void;
-    send(requestObject:Object):string;
+    send(type:string, url:string, data:any, contentType:string, dataType:string, cache:boolean):string;
     destroy():void;
 }

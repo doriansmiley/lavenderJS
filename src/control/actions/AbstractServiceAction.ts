@@ -103,6 +103,11 @@ export abstract class AbstractServiceAction extends Subject implements IAction, 
     }
 
     //Override this method in subclasses
+    public onProgress(progress:number){
+
+    }
+
+    //Override this method in subclasses
     protected getFaultString():string{
         return null;
     }

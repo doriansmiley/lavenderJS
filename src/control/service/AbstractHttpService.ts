@@ -33,7 +33,7 @@ export class AbstractHttpService implements IService{
         return this.responders.addItem(responder);
     }
 
-    public send():string{
+    public send(type:string, url:string, data:any, contentType:string, dataType:string, cache:boolean):string{
         this.requestId = UuidUtils.generateUUID();
         return this.requestId;
     }
