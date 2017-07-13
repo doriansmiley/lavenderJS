@@ -42,10 +42,9 @@ export abstract class AbstractServiceAction extends Subject implements IAction, 
         if (this.service === null || this.service === undefined || this.opModel === null || this.opModel === undefined || this.parser === null || this.parser === undefined) {
             this.executionError();
         }
-
         this.opModel.asyncOperationComplete = false;
         this.opModel.asyncOperationCount += 1;
-
+        this.service.addResponder(this);
         return this.executeServiceMethod();
     }
 
