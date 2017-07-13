@@ -18,6 +18,12 @@ describe('HttpFaultTest ', function () {
         expect( requestId ).toBeDefined();
         expect( requestId ).toBe(service.requestId);
         expect( service.responders.length ).toBe(3);
+        service.removeResponder(responder1);
+        expect( service.responders.length ).toBe(2);
+        expect( service.responders.indexOf(responder1) ).toBe(-1);
+        service.removeResponder(responder2);
+        expect( service.responders.length ).toBe(1);
+        expect( service.responders.indexOf(responder2) ).toBe(-1);
         service.destroy();
         expect( service.responders ).toBe(null);
     });

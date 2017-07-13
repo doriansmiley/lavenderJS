@@ -33,6 +33,14 @@ export class AbstractHttpService implements IService{
         return this.responders.addItem(responder);
     }
 
+    public removeResponder(responder:IResponder):void{
+        if( responder.fault === null || responder.fault ===undefined || responder.success === null || responder.success === undefined ){
+            throw new Error('responder must define fault and success methods');
+        }
+        var index = this.responders.indexOf(responder);
+        this.responders.removeItemAt(index);
+    }
+
     public send(type:string, url:string, data:any, contentType:string, dataType:string, cache:boolean):string{
         this.requestId = UuidUtils.generateUUID();
         return this.requestId;

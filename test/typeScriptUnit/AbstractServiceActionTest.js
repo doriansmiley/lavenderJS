@@ -10,7 +10,7 @@ describe('AbstractServiceActionTest ', function () {
         var opModel = new Lavender.AsyncOperationModel();
         var errorModel = new Lavender.ErrorModel();
         var abstractAction = new Lavender.AbstractServiceAction();
-        abstractAction.service = {};
+        abstractAction.service = new Lavender.AbstractHttpService();
         abstractAction.opModel = opModel;
         abstractAction.errorModel = errorModel;
         abstractAction.parser = {};
@@ -30,7 +30,7 @@ describe('AbstractServiceActionTest ', function () {
         expect(abstractAction.opModel).toBe(null);
         expect(abstractAction.parser).toBe(null);
 
-        abstractAction.service = {};
+        abstractAction.service = new Lavender.AbstractHttpService();
         abstractAction.opModel = opModel;
         abstractAction.parser = {};
         abstractAction.errorModel = errorModel;
