@@ -54,7 +54,7 @@ export class ArrayList extends Subject implements IList, AbstractEventDispatcher
         return returnValue;
     }
     
-    public addItem(object:any, hash?:Object, key?:string) {
+    public addItem(object:any, hash?:Object, key?:string):number {
         if( !this.allowInsert( object, hash, key ) ){
             //replace the existing item with the new item
             return;
