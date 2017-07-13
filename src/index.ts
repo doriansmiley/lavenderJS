@@ -47,3 +47,4 @@ export * from './control/service/IService';
 export * from './control/service/HttpSuccess';
 export * from './control/service/HttpFault';
 export * from './control/actions/AbstractServiceAction';
+export * from './control/actions/AbstractSynchronousAction';
