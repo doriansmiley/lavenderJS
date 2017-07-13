@@ -3,6 +3,8 @@
  */
 import {IAction} from './IAction';
 import {IService} from '../service/IService';
+import {IFault} from '../responder/IFault';
+import {IResult} from '../responder/IResult';
 import {AsyncOperationModel} from '../../model/AsyncOperationModel';
 import {ErrorModel} from '../../model/ErrorModel';
 import {Subject} from '../../model/observable/Subject';
@@ -27,8 +29,12 @@ export abstract class AbstractServiceAction extends Subject implements IAction, 
     removeAllEventListeners: ( instance:Object )  =>  void;
     dispatch: ( event:IEvent )  =>  void;
 
-    constructor(){
+    constructor(service:IService, opModel:AsyncOperationModel, parser:IParser, errorModel:ErrorModel){
         super();
+        this.service = service;
+        this.opModel = opModel;
+        this.parser = parser;
+        this.errorModel = errorModel;
         ObjectUtils.mixin(AbstractEventDispatcher, AbstractServiceAction, this);
     }
 
@@ -51,7 +57,7 @@ export abstract class AbstractServiceAction extends Subject implements IAction, 
 
     //Override this method in subclasses
     //it should parse the result and return the resulting Object tree
-    protected parseResponse(result):Object{
+    protected parseResponse(result:IResult):Object{
         return null;
     }
     
@@ -60,7 +66,7 @@ export abstract class AbstractServiceAction extends Subject implements IAction, 
         this.dispatch(doneEvent);
     }
 
-    public success(result):void{
+    public success(result:IResult):void{
         try {
             //result is instance of Lavender.HttpSuccess
             let parsedResult = this.parseResponse(result);
@@ -81,16 +87,16 @@ export abstract class AbstractServiceAction extends Subject implements IAction, 
         }
     }
 
-    public fault(fault):void{
+    public fault(fault:IFault):void{
         //fault is an instance of Lavender.HttpFault
         this.opModel.asyncOperationCount -= 1;
         if (this.opModel.asyncOperationCount == 0) {
             this.opModel.asyncOperationComplete = true;
         }
-        var errorMessage = this.getFaultString() + fault.message;
-        var errorEvent = new ActionErrorEvent(ActionErrorEvent.ERROR, {message:errorMessage});
+        let errorMessage = this.getFaultString() + fault.message;
+        let errorEvent = new ActionErrorEvent(ActionErrorEvent.ERROR, {message:errorMessage});
         this.dispatch(errorEvent);
-        var error = {name: fault.status, message: errorMessage};
+        let error = {name: fault.status, message: errorMessage};
         this.errorModel.errors.addItem(error);
         this.errorModel.appError = true;
         this.tearDown();

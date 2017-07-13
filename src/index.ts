@@ -44,4 +44,6 @@ export * from './control/responder/IResult';
 export * from './control/responder/IResponder';
 export * from './control/actions/IAction';
 export * from './control/service/IService';
+export * from './control/service/HttpSuccess';
+export * from './control/service/HttpFault';
 export * from './control/actions/AbstractServiceAction';
