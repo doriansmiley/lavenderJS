@@ -1,0 +1,42 @@
+{
+  "name": "lavenderjs",
+  "version": "1.0.0",
+  "description": "javascript microarchitecture",
+  "main": "lib/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "clean-dist": "rimraf ./lib/*",
+    "prebuild": "npm run clean-dist",
+    "build": "tsc && webpack",
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://doriansmiley@yahoo.com@github.com/doriansmiley/lavenderJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doriansmiley/lavenderJS/issues"
+  },
+  "homepage": "https://github.com/doriansmiley/lavenderJS#readme",
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.1.2",
+    "chai": "^3.5.0",
+    "grunt": "^1.0.1",
+    "grunt-mocha-test": "^0.13.2",
+    "jasmine": "^2.6.0",
+    "karma": "^1.7.0",
+    "karma-chrome-launcher": "^2.1.1",
+    "karma-firefox-launcher": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-junit-reporter": "^1.2.0",
+    "karma-sauce-launcher": "^1.1.0",
+    "mocha": "^3.3.0",
+    "rimraf": "^2.6.1",
+    "typescript": "^2.2.2",
+    "webpack": "^2.4.1"
+  }
+}
