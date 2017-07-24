@@ -1,9 +1,6 @@
 /**
  * Created by dsmiley on 7/11/17.
  */
-/**
- * Created by dsmiley on 7/11/17.
- */
 describe('Lavender.URLUtils', function(){
 
     it('Testing Lavender.URLUtils', function() {

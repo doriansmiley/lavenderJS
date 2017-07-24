@@ -8,7 +8,7 @@ export interface IList extends IEventDispatcher {
     clone(): IList;
     source(): Array<any>;
     allowInsert(object: any, hash?: Object, key?: string): boolean;
-    addItem(object: any, hash?: Object, key?: string): void;
+    addItem(object: any, hash?: Object, key?: string): number;
     addAll(items: Array<any>, replaceIndex?: boolean): void;
     getItemAt(index: number): any;
     clear(): void;
