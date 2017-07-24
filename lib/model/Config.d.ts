@@ -7,9 +7,11 @@ export declare class Config extends Subject {
     private _webRoot;
     private _parserCode;
     private _exporterCode;
+    private _token;
     constructor();
     baseUrl: string;
     webRoot: string;
     parserCode: string;
     exporterCode: string;
+    token: string;
 }

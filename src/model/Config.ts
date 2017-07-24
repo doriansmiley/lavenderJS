@@ -8,6 +8,7 @@ export class Config extends Subject{
     private _webRoot:string = '';//path relative to webroot where the application is deployed
     private _parserCode:string = undefined;//used to handle service results using a factory patter, see lotusJS examples
     private _exporterCode:string = undefined;//used to serialize objects for service payloads using a factory patter, see lotusJS examples
+    private _token:string = undefined;//used for oAuth authentication scemes and similar token based authentication systems
 
     constructor(){
         super();
@@ -43,5 +44,13 @@ export class Config extends Subject{
     set exporterCode(value:string){
         this._exporterCode = value;
         this.notify(value, "exporterCode");
+    }
+
+    get token():string{
+        return this._token;
+    }
+    set token(value:string){
+        this._token = value;
+        this.notify(value, "token");
     }
 }

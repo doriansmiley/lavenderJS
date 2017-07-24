@@ -11,11 +11,13 @@ describe('SPISDK Lists', function() {
         config.webRoot = '/main/';
         config.parserCode = 'test parser code';
         config.exporterCode = 'test exporter code';
+        config.token = '12jdsfjklw34';
 
         expect(config.baseUrl).toBe('http://devsql1.silpub.com/');
         expect(config.webRoot).toBe('/main/');
         expect(config.parserCode).toBe('test parser code');
         expect(config.exporterCode).toBe('test exporter code');
+        expect(config.token).toBe('12jdsfjklw34');
 
     });
 
