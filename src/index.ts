@@ -29,6 +29,7 @@ export * from './util/MatrixUtils';
 export * from './util/PathUtils';
 export * from './util/ResizeUtils';
 export * from './util/StringUtil';
+export * from './util/TransformUtils';
 export * from './util/URLUtils';
 export * from './util/UuidUtils';
 export * from './util/XmlUtils';
