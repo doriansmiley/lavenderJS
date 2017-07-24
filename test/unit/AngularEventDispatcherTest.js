@@ -3,7 +3,7 @@
  */
 'use strict';
 var app = angular.module('myApp', []);
-describe('AbstractEventDispatcher test', function () {
+describe('AngularEventDispatcherTest test', function () {
     var $compile;
     var $rootScope;
 
@@ -17,7 +17,7 @@ describe('AbstractEventDispatcher test', function () {
         $compile = _$compile_;
         $rootScope = _$rootScope_;
     }));
-    it('check event bus', function () {
+    it('check AngularEventDispatcher', function () {
         Lavender.ModelLocator.getInstance().config.eventDispatcherCode = 'angular';
         Lavender.init( Lavender.ModelLocator.getInstance().config, $rootScope );
         var testObject = {};
@@ -32,6 +32,7 @@ describe('AbstractEventDispatcher test', function () {
         testObject2.handler = function( event, data ){
             expect( data.payload.data ).toBe('test data');
         }
+        expect( Lavender.EventDispatcher instanceof AngularEventDispatcher).toBe(true);
         Lavender.EventDispatcher.addEventListener('test', testObject, 'handler');
         Lavender.EventDispatcher.addEventListener('test', testObject, 'handler2');
         expect( Lavender.EventDispatcher.canListen('test', testObject, 'handler') ).toBe(true);
