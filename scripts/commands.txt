@@ -1,17 +1,10 @@
-export SPI_SDK_HOME=/Users/dsmiley/workspace/lavenderJS
-
-cd $SPI_SDK_HOME
-sh ./scripts/test.sh
+export SAUCE_USERNAME=YOUR_USERNAME
+export SAUCE_ACCESS_KEY=YOUR_ACCESS_KEY
 
 export SPI_SDK_HOME=/Users/dsmiley/workspace/lavenderJS
 
 cd $SPI_SDK_HOME
 sh ./scripts/testSauce.sh
-
-export SPI_SDK_HOME=/Users/dsmiley/workspace/lavenderJS
-
-cd $SPI_SDK_HOME
-sh ./scripts/testUtils.sh
 
 export SPI_SDK_HOME=/Users/dsmiley/workspace/lavenderJS
 

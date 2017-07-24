@@ -50,35 +50,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        'lib/jquery/jquery-1.10.2.js',
-        'lib/angular/angular.js',
-        'lib/angular/angular-*.js',
-        'lib/angular/angular-mocks.js',
-        'lib/angular/angular-mocks.js',
-        'lib/matrixjs/matrix-1.2.0.min.js',
-        'lib/canvg/rgbcolor.js',
-        'lib/canvg/canvg.js',
-        '../global/Lavender.js',//set up the sdk namespace
-        '../util/*.js',
-        '../util/**/*.js',
-        '../control/AbstractEventDispatcher.js',
-        '../control/JqueryEventDispatcher.js',
-        '../control/AngularEventDispatcher.js',
-        '../events/**/*.js',
-        '../control/*.js',
-        '../control/actions/*.js',
-        '../model/lists/*.js',
-        '../model/recordset/*.js',
-        '../model/**/*.js',
-        '../services/**/*.js',
-        'unit/**/*.js'
+        '../lib/lavenderJS-UMD.min.js',
+        '../global/Lavender.js',
+        'typeScriptUnit/**/*.js'
     ],
 
       proxies: {
           "/local": "http://localhost"
       },
 
-      exclude: ['lib/angular/angular-scenario.js'],
+      //exclude: ['lib/angular/angular-scenario.js'],
 
       autoWatch: true,
 
