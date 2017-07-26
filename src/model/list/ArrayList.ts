@@ -97,7 +97,7 @@ export class ArrayList extends Subject implements IList, AbstractEventDispatcher
         }
     }
 
-    public removeItemFromHash(hash:Object, key:string):void{
+    protected removeItemFromHash(hash:Object, key:string):void{
         hash[ key ] = null;
         delete hash[ key ];
     }

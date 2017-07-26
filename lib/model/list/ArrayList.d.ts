@@ -24,7 +24,7 @@ export declare class ArrayList extends Subject implements IList, AbstractEventDi
     getItemAt(index: number): any;
     clear(): void;
     clearHash(hash: Object): void;
-    removeItemFromHash(hash: Object, key: string): void;
+    protected removeItemFromHash(hash: Object, key: string): void;
     removeItemAt(index: number): void;
     insert(object: any, index: number, suppressChangeEvent?: boolean, hash?: Object, key?: string, replaceIndex?: boolean): number;
     changeIndex(fromIndex: number, toIndex: number, suppressChangeEvent?: boolean): void;
