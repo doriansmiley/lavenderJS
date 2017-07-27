@@ -6,14 +6,14 @@ import {IFault} from '../responder/IFault';
 import {IResult} from '../responder/IResult'
 import {ErrorModel} from '../../model/ErrorModel';
 import {Subject} from '../../model/observable/Subject';
-import {AbstractEventDispatcher} from '../../control/AbstractEventDispatcher';
+import {EventDispatcher} from '../EventDispatcher';
 import {IEvent} from '../../events/IEvent';
 import {ObjectUtils} from '../../util/ObjectUtils';
 import {ActionSuccessEvent} from '../../events/ActionSuccessEvent';
 import {ActionErrorEvent} from '../../events/ActionErrorEvent';
 import {UuidUtils} from '../../util/UuidUtils';
 
-export abstract class AbstractSynchronousAction extends Subject implements IAction, AbstractEventDispatcher{
+export abstract class AbstractSynchronousAction extends Subject implements IAction, EventDispatcher{
     protected errorModel:ErrorModel;
 
     //placeholders for mixins, required for the compiler
@@ -27,7 +27,7 @@ export abstract class AbstractSynchronousAction extends Subject implements IActi
     constructor(errorModel:ErrorModel){
         super();
         this.errorModel = errorModel;
-        ObjectUtils.mixin(AbstractEventDispatcher, AbstractSynchronousAction, this);
+        ObjectUtils.mixin(EventDispatcher, AbstractSynchronousAction, this);
     }
 
     public execute():string{

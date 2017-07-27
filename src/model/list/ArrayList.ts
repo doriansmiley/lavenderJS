@@ -4,12 +4,12 @@
 import {IList} from './IList';
 import {Subject} from '../observable/Subject';
 import {ObjectUtils} from '../../util/ObjectUtils';
-import {AbstractEventDispatcher} from '../../control/AbstractEventDispatcher';
+import {EventDispatcher} from '../../control/EventDispatcher';
 import {IEventDispatcher} from '../../control/IEventDispatcher';
 import {CollectionEvent} from '../../events/CollectionEvent';
 import {IEvent} from '../../events/IEvent';
 
-export class ArrayList extends Subject implements IList, AbstractEventDispatcher{
+export class ArrayList extends Subject implements IList, EventDispatcher{
     private aList:Array<any>; //initialize with an empty array
     public allowDuplicates:boolean;
 
@@ -19,7 +19,7 @@ export class ArrayList extends Subject implements IList, AbstractEventDispatcher
         this.aList = (source) ? source : [];
         this.allowDuplicates = allowDuplicates;
 
-        ObjectUtils.mixin(AbstractEventDispatcher, ArrayList, this);
+        ObjectUtils.mixin(EventDispatcher, ArrayList, this);
     }
 
     //placeholders for mixins, required for the compiler

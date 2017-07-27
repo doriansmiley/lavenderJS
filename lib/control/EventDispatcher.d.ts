@@ -3,7 +3,7 @@
  */
 import { IEvent } from '../events/IEvent';
 import { IEventDispatcher } from './IEventDispatcher';
-export declare abstract class AbstractEventDispatcher implements IEventDispatcher {
+export declare class EventDispatcher implements IEventDispatcher {
     handlersByEventName: Object;
     constructor();
     addEventListener(event: string, instance: Object, handler: string): void;

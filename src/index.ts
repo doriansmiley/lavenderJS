@@ -36,7 +36,7 @@ export * from './util/XmlUtils';
 export * from './serialization/IParser';
 export * from './serialization/IExporter';
 export * from './control/IEventDispatcher';
-export * from './control/AbstractEventDispatcher';
+export * from './control/EventDispatcher';
 export * from './events/IEvent';
 export * from './events/AbstractEvent';
 export * from './events/CollectionEvent';

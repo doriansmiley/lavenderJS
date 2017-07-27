@@ -14,7 +14,7 @@ class Listener {
     }
 }
 
-export abstract class AbstractEventDispatcher implements IEventDispatcher {
+export class EventDispatcher implements IEventDispatcher {
     public handlersByEventName:Object;
 
     constructor() {

@@ -3,9 +3,9 @@
  */
 import { IList } from './IList';
 import { Subject } from '../observable/Subject';
-import { AbstractEventDispatcher } from '../../control/AbstractEventDispatcher';
+import { EventDispatcher } from '../../control/EventDispatcher';
 import { IEvent } from '../../events/IEvent';
-export declare class ArrayList extends Subject implements IList, AbstractEventDispatcher {
+export declare class ArrayList extends Subject implements IList, EventDispatcher {
     private aList;
     allowDuplicates: boolean;
     constructor(source?: Array<any>, allowDuplicates?: boolean);

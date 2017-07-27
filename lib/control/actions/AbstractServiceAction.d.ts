@@ -9,9 +9,9 @@ import { AsyncOperationModel } from '../../model/AsyncOperationModel';
 import { ErrorModel } from '../../model/ErrorModel';
 import { Subject } from '../../model/observable/Subject';
 import { IParser } from '../../serialization/IParser';
-import { AbstractEventDispatcher } from '../../control/AbstractEventDispatcher';
+import { EventDispatcher } from '../EventDispatcher';
 import { IEvent } from '../../events/IEvent';
-export declare abstract class AbstractServiceAction extends Subject implements IAction, AbstractEventDispatcher {
+export declare abstract class AbstractServiceAction extends Subject implements IAction, EventDispatcher {
     protected service: IService;
     protected opModel: AsyncOperationModel;
     protected parser: IParser;

@@ -5,8 +5,8 @@ import { Subject } from '../observable/Subject';
 import { CollectionEvent } from '../../events/CollectionEvent';
 import { IEvent } from '../../events/IEvent';
 import { IList } from '../list/IList';
-import { AbstractEventDispatcher } from '../../control/AbstractEventDispatcher';
-export declare class RecordSet extends Subject implements AbstractEventDispatcher {
+import { EventDispatcher } from '../../control/EventDispatcher';
+export declare class RecordSet extends Subject implements EventDispatcher {
     static USER_UPLOAD: string;
     static FOTOLIA: string;
     static FACEBOOK: string;

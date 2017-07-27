@@ -8,9 +8,9 @@ import {IEvent} from '../../events/IEvent';
 import {IList} from '../list/IList';
 import {ArrayList} from '../list/ArrayList';
 import {ObjectUtils} from '../../util/ObjectUtils';
-import {AbstractEventDispatcher} from '../../control/AbstractEventDispatcher';
+import {EventDispatcher} from '../../control/EventDispatcher';
 
-export class RecordSet extends Subject implements AbstractEventDispatcher{
+export class RecordSet extends Subject implements EventDispatcher{
 
     public static USER_UPLOAD:string = 'userUpload';
     public static FOTOLIA:string = 'fotolia';
@@ -169,7 +169,7 @@ export class RecordSet extends Subject implements AbstractEventDispatcher{
     constructor(timeToLive:number=NaN, listFunction:any=null){
         super();
 
-        ObjectUtils.mixin(AbstractEventDispatcher, RecordSet, this);
+        ObjectUtils.mixin(EventDispatcher, RecordSet, this);
 
         this._timeToLive = timeToLive;
         this._results = ( listFunction ) ? new listFunction() as IList : new ArrayList();

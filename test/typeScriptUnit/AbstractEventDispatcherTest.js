@@ -2,10 +2,10 @@
  * Created by dsmiley on 1/23/14.
  */
 'use strict';
-describe('AbstractEventDispatcher test', function () {
+describe('EventDispatcher test', function () {
 
     it('check event bus', function () {
-        var eventDispatcher = new Lavender.AbstractEventDispatcher();
+        var eventDispatcher = new Lavender.EventDispatcher();
         var testObject = {};
         var testObject2 = {};
         var event = new Lavender.AbstractEvent('test', {data:'test data'});

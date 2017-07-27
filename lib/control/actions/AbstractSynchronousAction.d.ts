@@ -6,9 +6,9 @@ import { IFault } from '../responder/IFault';
 import { IResult } from '../responder/IResult';
 import { ErrorModel } from '../../model/ErrorModel';
 import { Subject } from '../../model/observable/Subject';
-import { AbstractEventDispatcher } from '../../control/AbstractEventDispatcher';
+import { EventDispatcher } from '../EventDispatcher';
 import { IEvent } from '../../events/IEvent';
-export declare abstract class AbstractSynchronousAction extends Subject implements IAction, AbstractEventDispatcher {
+export declare abstract class AbstractSynchronousAction extends Subject implements IAction, EventDispatcher {
     protected errorModel: ErrorModel;
     handlersByEventName: Object;
     addEventListener: (event: string, instance: Object, handler: string) => void;

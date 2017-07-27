@@ -2,10 +2,10 @@
  * Created by dsmiley on 5/17/17.
  */
 import { RecordSetList } from './RecordSetList';
-import { AbstractEventDispatcher } from '../../control/AbstractEventDispatcher';
+import { EventDispatcher } from '../../control/EventDispatcher';
 import { Subject } from '../observable/Subject';
 import { IEvent } from '../../events/IEvent';
-export declare class RecordSetModel extends Subject implements AbstractEventDispatcher {
+export declare class RecordSetModel extends Subject implements EventDispatcher {
     private _recordSets;
     constructor();
     handlersByEventName: Object;

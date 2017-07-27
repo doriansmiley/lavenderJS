@@ -9,13 +9,13 @@ import {AsyncOperationModel} from '../../model/AsyncOperationModel';
 import {ErrorModel} from '../../model/ErrorModel';
 import {Subject} from '../../model/observable/Subject';
 import {IParser} from '../../serialization/IParser';
-import {AbstractEventDispatcher} from '../../control/AbstractEventDispatcher';
+import {EventDispatcher} from '../EventDispatcher';
 import {IEvent} from '../../events/IEvent';
 import {ObjectUtils} from '../../util/ObjectUtils';
 import {ActionSuccessEvent} from '../../events/ActionSuccessEvent';
 import {ActionErrorEvent} from '../../events/ActionErrorEvent';
 
-export abstract class AbstractServiceAction extends Subject implements IAction, AbstractEventDispatcher{
+export abstract class AbstractServiceAction extends Subject implements IAction, EventDispatcher{
     protected service:IService;
     protected opModel:AsyncOperationModel;
     protected parser:IParser;
@@ -35,7 +35,7 @@ export abstract class AbstractServiceAction extends Subject implements IAction, 
         this.opModel = opModel;
         this.parser = parser;
         this.errorModel = errorModel;
-        ObjectUtils.mixin(AbstractEventDispatcher, AbstractServiceAction, this);
+        ObjectUtils.mixin(EventDispatcher, AbstractServiceAction, this);
     }
 
     public execute():string{
