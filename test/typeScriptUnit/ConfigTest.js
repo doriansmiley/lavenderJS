@@ -12,12 +12,20 @@ describe('SPISDK Lists', function() {
         config.parserCode = 'test parser code';
         config.exporterCode = 'test exporter code';
         config.token = '12jdsfjklw34';
+        config.serviceCode = 'testService';
+        var asyncOperationModel = new Lavender.AsyncOperationModel();
+        config.asyncOperationModel = asyncOperationModel;
+        var errorModel = new Lavender.ErrorModel();
+        config.errorModel = errorModel;
 
         expect(config.baseUrl).toBe('http://devsql1.silpub.com/');
         expect(config.webRoot).toBe('/main/');
         expect(config.parserCode).toBe('test parser code');
         expect(config.exporterCode).toBe('test exporter code');
         expect(config.token).toBe('12jdsfjklw34');
+        expect(config.serviceCode).toBe('testService');
+        expect(config.asyncOperationModel).toBe(asyncOperationModel);
+        expect(config.errorModel).toBe(errorModel);
 
     });
 
