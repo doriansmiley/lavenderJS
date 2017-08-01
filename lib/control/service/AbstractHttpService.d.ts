@@ -1,12 +1,12 @@
 /**
  * Created by dsmiley on 7/12/17.
  */
-import { IService } from '../service/IService';
+import { IHttpService } from './IHttpService';
 import { ArrayList } from '../../model/list/ArrayList';
 import { IResponder } from '../responder/IResponder';
 import { IFault } from '../responder/IFault';
 import { IResult } from '../responder/IResult';
-export declare class AbstractHttpService implements IService {
+export declare class AbstractHttpService implements IHttpService {
     responders: ArrayList;
     requestId: string;
     constructor();
