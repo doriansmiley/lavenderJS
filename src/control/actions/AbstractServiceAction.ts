@@ -2,7 +2,7 @@
  * Created by dsmiley on 7/12/17.
  */
 import {IAction} from './IAction';
-import {IService} from '../service/IService';
+import {IHttpService} from '../service/IHttpService';
 import {IFault} from '../responder/IFault';
 import {IResult} from '../responder/IResult';
 import {AsyncOperationModel} from '../../model/AsyncOperationModel';
@@ -16,7 +16,7 @@ import {ActionSuccessEvent} from '../../events/ActionSuccessEvent';
 import {ActionErrorEvent} from '../../events/ActionErrorEvent';
 
 export abstract class AbstractServiceAction extends Subject implements IAction, EventDispatcher{
-    protected service:IService;
+    protected service:IHttpService;
     protected opModel:AsyncOperationModel;
     protected parser:IParser;
     protected errorModel:ErrorModel;
@@ -29,7 +29,7 @@ export abstract class AbstractServiceAction extends Subject implements IAction, 
     removeAllEventListeners: ( instance:Object )  =>  void;
     dispatch: ( event:IEvent )  =>  void;
 
-    constructor(service:IService, opModel:AsyncOperationModel, parser:IParser, errorModel:ErrorModel){
+    constructor(service:IHttpService, opModel:AsyncOperationModel, parser:IParser, errorModel:ErrorModel){
         super();
         this.service = service;
         this.opModel = opModel;

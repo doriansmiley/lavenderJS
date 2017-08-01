@@ -1,14 +1,14 @@
 /**
  * Created by dsmiley on 7/12/17.
  */
-import {IService} from '../service/IService';
+import {IHttpService} from './IHttpService';
 import {ArrayList} from '../../model/list/ArrayList';
 import {IResponder} from '../responder/IResponder';
 import {IFault} from '../responder/IFault';
 import {IResult} from '../responder/IResult';
 import {UuidUtils} from '../../util/UuidUtils';
 
-export class AbstractHttpService implements IService{
+export class AbstractHttpService implements IHttpService{
     public responders:ArrayList = new ArrayList();
     public requestId:string;
 
