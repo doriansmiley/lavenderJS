@@ -9,8 +9,9 @@ import {IList} from '../list/IList';
 import {ArrayList} from '../list/ArrayList';
 import {ObjectUtils} from '../../util/ObjectUtils';
 import {EventDispatcher} from '../../control/EventDispatcher';
+import {IEventDispatcher} from '../../control/EventDispatcher';
 
-export class RecordSet extends Subject implements EventDispatcher{
+export class RecordSet extends Subject implements IEventDispatcher{
 
     public static USER_UPLOAD:string = 'userUpload';
     public static FOTOLIA:string = 'fotolia';
