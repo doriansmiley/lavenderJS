@@ -9,7 +9,7 @@ import {IList} from '../list/IList';
 import {ArrayList} from '../list/ArrayList';
 import {ObjectUtils} from '../../util/ObjectUtils';
 import {EventDispatcher} from '../../control/EventDispatcher';
-import {IEventDispatcher} from '../../control/EventDispatcher';
+import {IEventDispatcher} from '../../control/IEventDispatcher';
 
 export class RecordSet extends Subject implements IEventDispatcher{
 
