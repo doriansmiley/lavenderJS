@@ -111,9 +111,12 @@ export class RecordSet extends Subject implements IEventDispatcher{
                 this._results.removeEventListener(CollectionEvent.COLLECTION_CHANGE, this, 'resultCollectionChanged');
             }
             this._results = val;
-            this.renewState();
-            this.selectedPage = 1;
-            this._results.addEventListener(CollectionEvent.COLLECTION_CHANGE, this, 'resultCollectionChanged');
+            if ( this._results!== null && this._results!== undefined )
+            {
+                this.renewState();
+                this.selectedPage = 1;
+                this._results.addEventListener(CollectionEvent.COLLECTION_CHANGE, this, 'resultCollectionChanged');
+            }
             this.notify(val, "results");
             this.dispatch(new RecordSetEvent(RecordSetEvent.RESULTS_CHANGE));
         }
