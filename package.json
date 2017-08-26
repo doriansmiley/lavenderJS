@@ -1,6 +1,6 @@
 {
   "name": "lavenderjs",
-  "version": "1.0.11",
+  "version": "1.0.13",
   "description": "javascript microarchitecture",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
