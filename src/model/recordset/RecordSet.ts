@@ -78,10 +78,10 @@ export class RecordSet extends Subject implements IEventDispatcher{
         if (this._selectedPage != val) {
             //IMPORTANT: set the value first so responders to the ImageAssetEvent.GET_IMAGE_ASSETS event know what page we need to load data for
             this._selectedPage = val;
-            if( !this.pageLoaded( val ) ){
+            if( val >= 1 && !this.pageLoaded( val ) ){
                 this.dispatch(new RecordSetEvent(RecordSetEvent.LOAD_PAGE_DATA, {recordSet:this}));
+                this.calculatePageList();
             }
-            this.calculatePageList();
             this.notify(val, "selectedPage");
             this.dispatch(new RecordSetEvent(RecordSetEvent.SELECTED_PAGE_CHANGE));
         }
