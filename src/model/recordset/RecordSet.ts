@@ -80,8 +80,8 @@ export class RecordSet extends Subject implements IEventDispatcher{
             this._selectedPage = val;
             if( val >= 1 && !this.pageLoaded( val ) ){
                 this.dispatch(new RecordSetEvent(RecordSetEvent.LOAD_PAGE_DATA, {recordSet:this}));
-                this.calculatePageList();
             }
+            this.calculatePageList();
             this.notify(val, "selectedPage");
             this.dispatch(new RecordSetEvent(RecordSetEvent.SELECTED_PAGE_CHANGE));
         }
@@ -127,7 +127,7 @@ export class RecordSet extends Subject implements IEventDispatcher{
     }
     set createdOn(val:number){
         this._createdOn = val;
-        this.notify(val, "id");
+        this.notify(val, "createdOn");
     }
 
     get pageList():IList{
@@ -135,7 +135,7 @@ export class RecordSet extends Subject implements IEventDispatcher{
     }
     set pageList(val:IList){
         this._pageList = val;
-        this.notify(val, "id");
+        this.notify(val, "pageList");
         this.dispatch(new RecordSetEvent(RecordSetEvent.PAGE_LIST_CHANGE));
     }
 
@@ -151,7 +151,7 @@ export class RecordSet extends Subject implements IEventDispatcher{
             //calling this accessor multiple times will reset the timeout preserving the records
             this._intervalId = setTimeout(() =>{ this.clear }, val);
         }
-        this.notify(val, "id");
+        this.notify(val, "timeToLive");
     }
 
     get source():string{
@@ -159,7 +159,7 @@ export class RecordSet extends Subject implements IEventDispatcher{
     }
     set source(val:string){
         this._source = val;
-        this.notify(val, "id");
+        this.notify(val, "source");
     }
 
     get routeController():Object{
@@ -167,7 +167,7 @@ export class RecordSet extends Subject implements IEventDispatcher{
     }
     set routeController(val:Object){
         this._routeController = val;
-        this.notify(val, "id");
+        this.notify(val, "routeController");
     }
     
     constructor(timeToLive:number=NaN, listFunction:any=null){
