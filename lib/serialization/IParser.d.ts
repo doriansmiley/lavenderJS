@@ -4,5 +4,5 @@ import { IResult } from "../control/responder/IResult";
  */
 export interface IParser {
     parse(result: IResult): Object;
-    canParse(): boolean;
+    canParse(result: IResult): boolean;
 }

@@ -3,35 +3,48 @@
  */
 import {Subject} from './observable/Subject';
 import {ArrayList} from './list/ArrayList';
+import {IList} from "./list/IList";
 
 export class ErrorModel extends Subject{
 
-    private _appError:boolean = false;
-    private _errors:ArrayList = new ArrayList();
+    private _appError:boolean = false;//controls the visibility of app error messages
+    private _showConfirmationOption:boolean = false;//this controls whether or not the SpiAlerts directive presents an OK and Cancel button to the end user for confirmation dialogs
+    private _errors:IList = new ArrayList();
 
     constructor(){
         super();
     }
 
-    get appError():boolean{
+
+    get appError():boolean {
         return this._appError;
     }
-    set appError(value:boolean){
+
+    set appError(value:boolean) {
         this._appError = value;
-        this.notify(value, "appError");
+        this.notify(value, 'appError');
     }
 
-    get errors():ArrayList{
+    get showConfirmationOption():boolean {
+        return this._showConfirmationOption;
+    }
+
+    set showConfirmationOption(value:boolean) {
+        this._showConfirmationOption = value;
+        this.notify(value, 'showConfirmationOption');
+    }
+
+    get errors():IList {
         return this._errors;
     }
-    set errors(value:ArrayList){
+
+    set errors(value:IList) {
         this._errors = value;
-        this.notify(value, "errors");
+        this.notify(value, 'errors');
     }
 
     public getTitle():string{
-        var returnTitle = (this.errors.length > 1 ) ? 'Multiple errors have occurred.\n' : 'The following error occurred.\n';
-        return returnTitle;
+        return (this.errors.length > 1 ) ? 'Multiple errors have occurred.\n' : 'The following error occurred.\n';;
     }
 
     public getMessage():string{
