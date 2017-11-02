@@ -149,7 +149,7 @@ export class RecordSet extends Subject implements IEventDispatcher{
             //TODO:have this reload data instead of clearing it
             //set the timeout to _timeToLive. This will clear the recordset at the interval
             //calling this accessor multiple times will reset the timeout preserving the records
-            this._intervalId = setTimeout(() =>{ this.clear }, val);
+            this._intervalId = window.setTimeout(() =>{ this.clear }, val);
         }
         this.notify(val, "timeToLive");
     }
