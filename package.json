@@ -1,8 +1,9 @@
 {
   "name": "lavenderjs",
-  "version": "1.0.0",
+  "version": "1.0.17",
   "description": "javascript microarchitecture",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "directories": {
     "test": "test"
   },
@@ -10,7 +11,7 @@
     "clean-dist": "rimraf ./lib/*",
     "prebuild": "npm run clean-dist",
     "build": "tsc && webpack",
-    "test": "grunt"
+    "test": "sh ./scripts/typescript.sh"
   },
   "repository": {
     "type": "git",
@@ -38,5 +39,9 @@
     "rimraf": "^2.6.1",
     "typescript": "^2.2.2",
     "webpack": "^2.4.1"
+  },
+  "dependencies": {
+    "typedoc": "^0.9.0",
+    "typedoc-webpack-plugin": "^1.1.4"
   }
 }

@@ -2,7 +2,8 @@
  * Created by dsmiley on 4/18/17.
  */
 import { IEventDispatcher } from '../../control/IEventDispatcher';
-export interface IList extends IEventDispatcher {
+import { IBindable } from "../../model/observable/IBindable";
+export interface IList extends IEventDispatcher, IBindable {
     allowDuplicates: boolean;
     length: number;
     clone(): IList;

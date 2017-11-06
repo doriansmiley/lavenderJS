@@ -34,6 +34,10 @@ export class XhrHttpService extends AbstractHttpService{
         this.xhrRequest.removeEventListener("progress", this.updateProgress, false);
     }
 
+    public setRequestHeaders(header:string, value:any):void{
+        this.xhrRequest.setRequestHeader(header, value);
+    }
+
     public success(result:IResult):void{
         if( this.xhrRequest.status != 200 ){
             //errorObj:any, status:number, message:string, requestId:string

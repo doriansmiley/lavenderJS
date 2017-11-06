@@ -8,9 +8,10 @@ import {IEvent} from '../../events/IEvent';
 import {IList} from '../list/IList';
 import {ArrayList} from '../list/ArrayList';
 import {ObjectUtils} from '../../util/ObjectUtils';
-import {AbstractEventDispatcher} from '../../control/AbstractEventDispatcher';
+import {EventDispatcher} from '../../control/EventDispatcher';
+import {IEventDispatcher} from '../../control/IEventDispatcher';
 
-export class RecordSet extends Subject implements AbstractEventDispatcher{
+export class RecordSet extends Subject implements IEventDispatcher{
 
     public static USER_UPLOAD:string = 'userUpload';
     public static FOTOLIA:string = 'fotolia';
@@ -77,7 +78,7 @@ export class RecordSet extends Subject implements AbstractEventDispatcher{
         if (this._selectedPage != val) {
             //IMPORTANT: set the value first so responders to the ImageAssetEvent.GET_IMAGE_ASSETS event know what page we need to load data for
             this._selectedPage = val;
-            if( !this.pageLoaded( val ) ){
+            if( val >= 1 && !this.pageLoaded( val ) ){
                 this.dispatch(new RecordSetEvent(RecordSetEvent.LOAD_PAGE_DATA, {recordSet:this}));
             }
             this.calculatePageList();
@@ -110,9 +111,12 @@ export class RecordSet extends Subject implements AbstractEventDispatcher{
                 this._results.removeEventListener(CollectionEvent.COLLECTION_CHANGE, this, 'resultCollectionChanged');
             }
             this._results = val;
-            this.renewState();
-            this.selectedPage = 1;
-            this._results.addEventListener(CollectionEvent.COLLECTION_CHANGE, this, 'resultCollectionChanged');
+            if ( this._results!== null && this._results!== undefined )
+            {
+                this.renewState();
+                this.selectedPage = 1;
+                this._results.addEventListener(CollectionEvent.COLLECTION_CHANGE, this, 'resultCollectionChanged');
+            }
             this.notify(val, "results");
             this.dispatch(new RecordSetEvent(RecordSetEvent.RESULTS_CHANGE));
         }
@@ -123,7 +127,7 @@ export class RecordSet extends Subject implements AbstractEventDispatcher{
     }
     set createdOn(val:number){
         this._createdOn = val;
-        this.notify(val, "id");
+        this.notify(val, "createdOn");
     }
 
     get pageList():IList{
@@ -131,7 +135,7 @@ export class RecordSet extends Subject implements AbstractEventDispatcher{
     }
     set pageList(val:IList){
         this._pageList = val;
-        this.notify(val, "id");
+        this.notify(val, "pageList");
         this.dispatch(new RecordSetEvent(RecordSetEvent.PAGE_LIST_CHANGE));
     }
 
@@ -145,9 +149,9 @@ export class RecordSet extends Subject implements AbstractEventDispatcher{
             //TODO:have this reload data instead of clearing it
             //set the timeout to _timeToLive. This will clear the recordset at the interval
             //calling this accessor multiple times will reset the timeout preserving the records
-            this._intervalId = setTimeout(() =>{ this.clear }, val);
+            this._intervalId = window.setTimeout(() =>{ this.clear }, val);
         }
-        this.notify(val, "id");
+        this.notify(val, "timeToLive");
     }
 
     get source():string{
@@ -155,7 +159,7 @@ export class RecordSet extends Subject implements AbstractEventDispatcher{
     }
     set source(val:string){
         this._source = val;
-        this.notify(val, "id");
+        this.notify(val, "source");
     }
 
     get routeController():Object{
@@ -163,13 +167,13 @@ export class RecordSet extends Subject implements AbstractEventDispatcher{
     }
     set routeController(val:Object){
         this._routeController = val;
-        this.notify(val, "id");
+        this.notify(val, "routeController");
     }
     
     constructor(timeToLive:number=NaN, listFunction:any=null){
         super();
 
-        ObjectUtils.mixin(AbstractEventDispatcher, RecordSet, this);
+        ObjectUtils.mixin(EventDispatcher, RecordSet, this);
 
         this._timeToLive = timeToLive;
         this._results = ( listFunction ) ? new listFunction() as IList : new ArrayList();

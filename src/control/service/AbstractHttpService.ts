@@ -1,14 +1,14 @@
 /**
  * Created by dsmiley on 7/12/17.
  */
-import {IService} from '../service/IService';
+import {IHttpService} from './IHttpService';
 import {ArrayList} from '../../model/list/ArrayList';
 import {IResponder} from '../responder/IResponder';
 import {IFault} from '../responder/IFault';
 import {IResult} from '../responder/IResult';
 import {UuidUtils} from '../../util/UuidUtils';
 
-export class AbstractHttpService implements IService{
+export class AbstractHttpService implements IHttpService{
     public responders:ArrayList = new ArrayList();
     public requestId:string;
 
@@ -31,6 +31,11 @@ export class AbstractHttpService implements IService{
             throw new Error('responder must define fault and success methods');
         }
         return this.responders.addItem(responder);
+    }
+
+    //stub for override
+    public setRequestHeaders(header:string, value:any):void{
+
     }
 
     public removeResponder(responder:IResponder):void{

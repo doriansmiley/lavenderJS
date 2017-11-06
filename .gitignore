@@ -3,3 +3,4 @@
 /.idea/jsLibraryMappings.xml
 /.idea/libraries
 /node_modules
+/lib/.DS_Store

@@ -58,4 +58,44 @@ export class Subject implements IBindable {
         }
     }
 
+    //legacy method for pure Javascript application to define accessor methods. DO NOT USE
+    public addProperty(label:string, getter:any, setter:any):void{
+        if (Object.defineProperty) {
+            try {
+                Object.defineProperty(
+                    this,
+                    label,
+                    {
+                        get: getter,
+                        set: setter,
+                        // Properties have to be enumerable otherwise they will be skipped during
+                        // for-in loop (which causes problems in CopyUtils)
+                        enumerable: true
+                    }
+                );
+            }
+            catch (e) {
+                // IE8 Bullshit implementation of Object.defineProperty
+            }
+
+        }
+        else if (this['__defineGetter__']) {
+            if (getter) {
+                this['__defineGetter__'](label, getter);
+            }
+            if (setter) {
+                this['__defineGetter__'](label, setter);
+            }
+        }
+    }
+
+    //legacy method for pure Javascript application to define accessor methods. DO NOT USE
+    public addProperties(p):void{
+        for (var label in p) {
+            if (p.hasOwnProperty(label)) {
+                this.addProperty(label, p[label].get, p[label].set);
+            }
+        }
+    }
+
 }

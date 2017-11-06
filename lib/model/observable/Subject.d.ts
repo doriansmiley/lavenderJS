@@ -11,4 +11,6 @@ export declare class Subject implements IBindable {
     notify(value: any, chain: string): void;
     addObserver(observer: IObserver): void;
     removeObserver(observer: IObserver): void;
+    addProperty(label: string, getter: any, setter: any): void;
+    addProperties(p: any): void;
 }

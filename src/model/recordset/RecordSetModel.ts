@@ -3,19 +3,19 @@
  */
 import {RecordSetList} from './RecordSetList';
 import {ObjectUtils} from '../../util/ObjectUtils';
-import {AbstractEventDispatcher} from '../../control/AbstractEventDispatcher';
+import {EventDispatcher} from '../../control/EventDispatcher';
 import {IEventDispatcher} from '../../control/IEventDispatcher';
 import {Subject} from '../observable/Subject';
 import {IEvent} from '../../events/IEvent';
 import {RecordSetEvent} from '../../events/RecordSetEvent'
 
-export class RecordSetModel extends Subject implements AbstractEventDispatcher{
+export class RecordSetModel extends Subject implements EventDispatcher{
 
     private _recordSets:RecordSetList = new RecordSetList();
 
     constructor(){
         super();
-        ObjectUtils.mixin(AbstractEventDispatcher, RecordSetModel, this);
+        ObjectUtils.mixin(EventDispatcher, RecordSetModel, this);
     }
 
     //placeholders for mixins, required for the compiler

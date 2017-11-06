@@ -2,7 +2,7 @@
  * Created by dsmiley on 1/23/14.
  */
 'use strict';
-describe('AbstractEventDispatcher test', function () {
+describe('EventDispatcher test', function () {
 
     it('check event bus', function () {
         var eventDispatcher = new Lavender.AbstractEventDispatcher();
