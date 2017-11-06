@@ -15,7 +15,7 @@ export class XhrHttpService extends AbstractHttpService{
 
     constructor(async:boolean=true, notifyOnProgress:boolean=false){
         super();
-        this.xhrRequest = null;
+        this.xhrRequest = new XMLHttpRequest();
         this.async = async;
         this.notifyOnProgress = notifyOnProgress;
     }
@@ -84,7 +84,6 @@ export class XhrHttpService extends AbstractHttpService{
 
     public send(type:string, url:string, data:any, contentType:string, dataType:XMLHttpRequestResponseType, cache:boolean=false):string{
         let requestId:string = super.send(type, url, data, contentType, dataType, cache);
-        this.xhrRequest = new XMLHttpRequest();
         this.addEventListeners();
         this.xhrRequest.onreadystatechange = function( event ){
             if( this.xhrRequest.readyState == 4 ){
