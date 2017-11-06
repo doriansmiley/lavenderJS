@@ -2,6 +2,7 @@
  * Created by dsmiley on 7/12/17.
  */
 import {IHttpService} from './IHttpService';
+import {Header} from './IHttpService';
 import {ArrayList} from '../../model/list/ArrayList';
 import {IResponder} from '../responder/IResponder';
 import {IFault} from '../responder/IFault';
@@ -33,11 +34,6 @@ export class AbstractHttpService implements IHttpService{
         return this.responders.addItem(responder);
     }
 
-    //stub for override
-    public setRequestHeaders(header:string, value:any):void{
-
-    }
-
     public removeResponder(responder:IResponder):void{
         if( responder.fault === null || responder.fault ===undefined || responder.success === null || responder.success === undefined ){
             throw new Error('responder must define fault and success methods');
@@ -46,7 +42,7 @@ export class AbstractHttpService implements IHttpService{
         this.responders.removeItemAt(index);
     }
 
-    public send(type:string, url:string, data:any, contentType:string, dataType:string, cache:boolean):string{
+    public send(type:string, url:string, data:any, contentType:string, dataType:string, cache:boolean=false, headers:Array<Header> = []):string{
         this.requestId = UuidUtils.generateUUID();
         return this.requestId;
     }

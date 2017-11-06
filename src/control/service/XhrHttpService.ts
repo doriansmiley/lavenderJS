@@ -2,10 +2,13 @@
  * Created by dsmiley on 7/12/17.
  */
 import {HttpSuccess} from './HttpSuccess';
+import {Header} from './IHttpService';
 import {HttpFault} from './HttpFault';
 import {AbstractHttpService} from '../service/AbstractHttpService';
 import {IFault} from '../responder/IFault';
 import {IResult} from '../responder/IResult';
+
+declare type header = {header:string, value:any};
 
 export class XhrHttpService extends AbstractHttpService{
 
@@ -15,7 +18,6 @@ export class XhrHttpService extends AbstractHttpService{
 
     constructor(async:boolean=true, notifyOnProgress:boolean=false){
         super();
-        this.xhrRequest = new XMLHttpRequest();
         this.async = async;
         this.notifyOnProgress = notifyOnProgress;
     }
@@ -32,10 +34,6 @@ export class XhrHttpService extends AbstractHttpService{
         this.xhrRequest.removeEventListener("load", this.load, false);
         this.xhrRequest.removeEventListener("error", this.onXhrFault, false);
         this.xhrRequest.removeEventListener("progress", this.updateProgress, false);
-    }
-
-    public setRequestHeaders(header:string, value:any):void{
-        this.xhrRequest.setRequestHeader(header, value);
     }
 
     public success(result:IResult):void{
@@ -82,8 +80,9 @@ export class XhrHttpService extends AbstractHttpService{
         //}
     }
 
-    public send(type:string, url:string, data:any, contentType:string, dataType:XMLHttpRequestResponseType, cache:boolean=false):string{
+    public send(type:string, url:string, data:any, contentType:string, dataType:XMLHttpRequestResponseType, cache:boolean=false, headers:Array<Header> = []):string{
         let requestId:string = super.send(type, url, data, contentType, dataType, cache);
+        this.xhrRequest = new XMLHttpRequest();
         this.addEventListeners();
         this.xhrRequest.onreadystatechange = function( event ){
             if( this.xhrRequest.readyState == 4 ){
@@ -91,6 +90,9 @@ export class XhrHttpService extends AbstractHttpService{
             }
         }.bind(this);
         this.xhrRequest.open( type, url, this.async );
+        for(var i=0; i < headers.length; i++){
+            this.xhrRequest.setRequestHeader(headers[i].header, headers[i].value);
+        }
         if( dataType !== null ){
             this.xhrRequest.responseType = dataType;
         }
