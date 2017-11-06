@@ -33,6 +33,11 @@ export class AbstractHttpService implements IHttpService{
         return this.responders.addItem(responder);
     }
 
+    //stub for override
+    public setRequestHeaders(header:string, value:any):void{
+
+    }
+
     public removeResponder(responder:IResponder):void{
         if( responder.fault === null || responder.fault ===undefined || responder.success === null || responder.success === undefined ){
             throw new Error('responder must define fault and success methods');

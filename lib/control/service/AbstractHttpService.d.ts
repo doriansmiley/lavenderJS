@@ -13,6 +13,7 @@ export declare class AbstractHttpService implements IHttpService {
     protected success(result: IResult): void;
     protected fault(fault: IFault): void;
     addResponder(responder: IResponder): number;
+    setRequestHeaders(header: string, value: any): void;
     removeResponder(responder: IResponder): void;
     send(type: string, url: string, data: any, contentType: string, dataType: string, cache: boolean): string;
     destroy(): void;
