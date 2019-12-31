@@ -1,6 +1,7 @@
-var path = require('path');
-var webpack = require('webpack');
-var TypedocWebpackPlugin = require('typedoc-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const TypedocWebpackPlugin = require('typedoc-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -18,12 +19,12 @@ module.exports = {
         extensions: ['.ts', '.tsx', '.js']
     },
     devtool: 'source-map',
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            minimize: true,
+    optimization: {
+        minimizer: [new TerserPlugin({
             sourceMap: true,
-            include: /\.min\.js$/,
-        }),
+        })],
+    },
+    plugins: [
         new TypedocWebpackPlugin({
             name: 'LavenderJS',
             mode: 'file',
@@ -35,13 +36,12 @@ module.exports = {
         }, './src')
     ],
     module: {
-        loaders: [{
-            test: /\.tsx?$/,
-            loader: 'awesome-typescript-loader',
-            exclude: /node_modules/,
-            query: {
-                declaration: false,
+        rules: [
+            {
+                test: /\.tsx?$/,
+                exclude: /node_modules/,
+                loader: 'awesome-typescript-loader'
             }
-        }]
+        ]
     }
 };

@@ -14,5 +14,6 @@ export declare class RecordSetModel extends Subject implements EventDispatcher {
     removeEventListener: (event: string, instance: Object, handler: string) => void;
     removeAllEventListeners: (instance: Object) => void;
     dispatch: (event: IEvent) => void;
-    recordSets: RecordSetList;
+    get recordSets(): RecordSetList;
+    set recordSets(value: RecordSetList);
 }

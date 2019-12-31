@@ -8,10 +8,14 @@ export declare class Geometry extends Subject {
     private _width;
     private _height;
     constructor(values?: any);
-    left: number;
-    top: number;
-    width: number;
-    height: number;
+    get left(): number;
+    set left(value: number);
+    get top(): number;
+    set top(value: number);
+    get width(): number;
+    set width(value: number);
+    get height(): number;
+    set height(value: number);
     update(values?: Object): void;
     getDefinedValues(): Object;
 }

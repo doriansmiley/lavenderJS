@@ -39,7 +39,7 @@ export class XhrHttpService extends AbstractHttpService{
     public success(result:IResult):void{
         if( this.xhrRequest.status != 200 ){
             //errorObj:any, status:number, message:string, requestId:string
-            let faultObj = new HttpFault(this.xhrRequest.response, this.xhrRequest.status, this.xhrRequest.responseText, this.requestId);
+            let faultObj = new HttpFault(this.xhrRequest.response, this.xhrRequest.status, this.xhrRequest.response, this.requestId);
             this.fault(faultObj);
             return;
         }
@@ -104,7 +104,7 @@ export class XhrHttpService extends AbstractHttpService{
     }
 
     public onXhrFault(event):void{
-        let faultObj = new HttpFault(this.xhrRequest.response, this.xhrRequest.status, this.xhrRequest.responseText, this.requestId);
+        let faultObj = new HttpFault(this.xhrRequest.response, this.xhrRequest.status, this.xhrRequest.response, this.requestId);
         this.fault(faultObj);
     }
 

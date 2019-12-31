@@ -6,45 +6,48 @@
 /* jasmine specs for controllers go here */
 describe('RecordSetTest ', function () {
     var recordSet = new Lavender.RecordSet();
-    recordSet.id = '1234';
-
-    recordSet.createdOn = new Date(2014,1,1);//Date;;
-    recordSet.timeToLive = 500000;
-    recordSet.source = 'test source';
-    recordSet.totalRecords = 300;
-    recordSet.recordsPerPage = 10;
-    var routeController = {};
-    recordSet.recordsPerPage = 10;
-    recordSet.routeController = routeController;
-    var resultSet = new Lavender.ArrayList();
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
-    resultSet.addItem( {someAttribute:1, someOther:5});
     var eventType;
     var eventTriggered = false;
+    var doneFunction;
+    var routeController = {};
     var resultSetHandler = {};
     resultSetHandler.handler = function( event ){
         eventType = event.type;
         eventTriggered = true;
-    }
+        doneFunction()
+    };
 
-    it('check RecordSet assign records', function () {
+    it('check RecordSet assign records', function (done) {
+        doneFunction = done;
+        recordSet.id = '1234';
+        recordSet.createdOn = new Date(2014,1,1);//Date;;
+        recordSet.timeToLive = 500000;
+        recordSet.source = 'test source';
+        recordSet.totalRecords = 300;
+        recordSet.recordsPerPage = 10;
+        recordSet.recordsPerPage = 10;
+        recordSet.routeController = routeController;
+        var resultSet = new Lavender.ArrayList();
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
+        resultSet.addItem( {someAttribute:1, someOther:5});
         recordSet.addEventListener(Lavender.RecordSetEvent.RESULTS_CHANGE, resultSetHandler, 'handler');
         recordSet.results = resultSet;
     });
 
-    it('check RecordSet values after population', function () {
+    it('check RecordSet values after population', function (done) {
+        doneFunction = done;
         recordSet.removeEventListener(Lavender.RecordSetEvent.RESULTS_CHANGE, resultSetHandler, 'handler');
         recordSet.selectedPage = 1;
         expect( recordSet.id ).toBe('1234');
@@ -61,7 +64,8 @@ describe('RecordSetTest ', function () {
         recordSet.recordsPerPage = 5;
     });
 
-    it('check RecordSet values after updating recordsPerPage', function () {
+    it('check RecordSet values after updating recordsPerPage', function (done) {
+        doneFunction = done;
         recordSet.removeEventListener(Lavender.RecordSetEvent.RECORDS_PER_PAGE_CHANGE, resultSetHandler, 'handler');
         expect( recordSet.totalPages ).toBe(60);
         expect( recordSet.selectedPage ).toBe(1);
@@ -71,7 +75,8 @@ describe('RecordSetTest ', function () {
         recordSet.selectedPage = 3;
     });
 
-    it('check RecordSet values after updating selectedPage', function () {
+    it('check RecordSet values after updating selectedPage', function (done) {
+        doneFunction = done;
         recordSet.removeEventListener(Lavender.RecordSetEvent.SELECTED_PAGE_CHANGE, resultSetHandler, 'handler');
         expect( recordSet.totalPages ).toBe(60);
         expect( recordSet.selectedPage ).toBe(3);
@@ -82,13 +87,14 @@ describe('RecordSetTest ', function () {
         recordSet.results.addItem( {someAttribute:1, someOther:5});
     });
 
-    it('check RecordSet values after manually adding an item', function () {
+    it('check RecordSet values after manually adding an item', function (done) {
         recordSet.removeEventListener(Lavender.RecordSetEvent.RESULTS_CHANGE, resultSetHandler, 'handler');
         expect( recordSet.totalPages).toBe(60);
         expect( recordSet.selectedPage ).toBe(3);
         expect( recordSet.resultsByPage[recordSet.selectedPage].length).toBe(5);
         expect( recordSet.pageList.length ).toBe(5);
         eventTriggered = false;
+        done();
     });
 
 });

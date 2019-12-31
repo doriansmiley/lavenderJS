@@ -8,9 +8,12 @@ export declare class ErrorModel extends Subject {
     private _showConfirmationOption;
     private _errors;
     constructor();
-    appError: boolean;
-    showConfirmationOption: boolean;
-    errors: IList;
+    get appError(): boolean;
+    set appError(value: boolean);
+    get showConfirmationOption(): boolean;
+    set showConfirmationOption(value: boolean);
+    get errors(): IList;
+    set errors(value: IList);
     getTitle(): string;
     getMessage(): string;
     addError(error: Error): void;

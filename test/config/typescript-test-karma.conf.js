@@ -14,6 +14,14 @@ module.exports = function (config) {
 
         autoWatch: true,
 
+        client: {
+            jasmine: {
+                random: false
+            }
+        },
+
+        singleRun: true,
+
         frameworks: ['jasmine'],
 
         browsers: ['Chrome'],
