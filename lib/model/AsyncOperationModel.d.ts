@@ -7,9 +7,12 @@ export declare class AsyncOperationModel extends Subject {
     private _asyncOperationComplete;
     private _asyncOperationDescription;
     constructor();
-    asyncOperationCount: number;
-    asyncOperationComplete: boolean;
-    asyncOperationDescription: string;
+    get asyncOperationCount(): number;
+    set asyncOperationCount(value: number);
+    get asyncOperationComplete(): boolean;
+    set asyncOperationComplete(value: boolean);
+    get asyncOperationDescription(): string;
+    set asyncOperationDescription(value: string);
     addAsyncOperation(description?: string): void;
     removeAsyncOperation(): void;
 }

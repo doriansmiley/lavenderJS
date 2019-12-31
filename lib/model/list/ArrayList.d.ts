@@ -15,7 +15,7 @@ export declare class ArrayList extends Subject implements IList, EventDispatcher
     removeEventListener: (event: string, instance: Object, handler: string) => void;
     removeAllEventListeners: (instance: Object) => void;
     dispatch: (event: IEvent) => void;
-    readonly length: number;
+    get length(): number;
     clone(): IList;
     source(): Array<any>;
     allowInsert(object: any, hash?: Object, key?: string): boolean;

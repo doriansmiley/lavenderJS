@@ -63,6 +63,12 @@ module.exports = function(config) {
 
       autoWatch: true,
 
+      client: {
+          jasmine: {
+              random: false
+          }
+      },
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter

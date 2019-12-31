@@ -7,8 +7,8 @@ export declare class XhrHttpService extends AbstractHttpService {
     private async;
     private notifyOnProgress;
     constructor(async?: boolean, notifyOnProgress?: boolean);
-    private addEventListeners();
-    private removeEventListeners();
+    private addEventListeners;
+    private removeEventListeners;
     success(result: IResult): void;
     fault(fault: IFault): void;
     load(event: any): void;

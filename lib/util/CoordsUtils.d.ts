@@ -7,8 +7,8 @@ export declare class CoordsUtils {
         top: number;
         left: number;
     };
-    private static getWindow(elem);
-    private static isWindow(elem);
+    private static getWindow;
+    private static isWindow;
 }
 export declare class Offset {
     top: number;
